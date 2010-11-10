@@ -2,19 +2,83 @@
     i18n:domain="collective.portlet.mybookmarks">
 
     <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-        Header
+		<span class="portletTopLeft"></span>
+        <span i18n:translate="mybookmarks_title">
+           Personal bookmarks
+        </span>
         <span class="portletTopRight"></span>
+	</dt>
+	
+	<tal:bookmarks repeat="bookmark view/results"
+				 condition="view/results">
+				 	
+	<dd class="portletItem" tal:define="delete python: user.has_permission('collective.portlet.bookmarks: Remove User Bookmark', here);">
+	  <a tal:condition="delete" 
+	  	 tal:attributes="href string:${here/absolute_url}/manage_bookmarks?remove_bookmark=${bookmark/removeValue}&bookmark_type=${bookmark/bookmark_type}"
+	  	 title="Remove bookmark" i18n:attributes="title">
+	  	<img class="bookmarkIcon" src="" alt="[DEL]" tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png"/>
+	  </a>
+	  <a tal:attributes="title bookmark/Description|bookmark/Title; href bookmark/url" tal:content="bookmark/Title" />
+	</dd>
+	</tal:bookmarks>
+	<dd id="addExternalBlock" class="portletItem">
+		<span id="hiddenAbsoluteUrl" class="hiddenBookmarkInformation" tal:content="here/absolute_url"/>
+		<span id="hiddenJsLabel" class="hiddenBookmarkInformation" i18n:translate="mybookmarks_js_label">External bookmark</span>
+		<form method="POST"
+			  class="bookmarkHiddenStructure"
+			  id="externalBookmarkForm"
+	          action=""
+			  tal:attributes="action string:${here/absolute_url}/manage_bookmarks">
+	    	<fieldset id="externalBookmarkFieldset">
+				<legend i18n:translate="mybookmarks_add_external_title">Add external bookmark</legend>
+		        <div class="formControls">
+				  
+				  <input type="hidden" name="form.submitted" value="1" />
+				  
+				  <div class="externalField">
+		                <label for="external_title" i18n:translate="mybookmarks_external_title">Title</label>
+						<span class="fieldRequired" title="Required"
+				      		  i18n:attributes="title"
+				      		  i18n:translate="label_required">(Required)</span>
+		                <div class="formHelp" i18n:translate="mybookmarks_external_title_help">
+		                	Bookmark title.
+		                </div>
+		                <input type="text"
+		                       id="external_title"
+							   size="18"
+		                       name="external_title"
+		                       />
+		          </div>
+				  <div class="externalField">
+		                <label for="external_url" i18n:translate="mybookmarks_external_url">Url</label>
+						<span class="fieldRequired" title="Required"
+				      		  i18n:attributes="title"
+				      		  i18n:translate="label_required">(Required)</span>
+		                <div class="formHelp" i18n:translate="mybookmarks_external_url_help">
+		                	Bookmark url.
+		                </div>
+		                <input type="text"
+		                       id="external_url"
+		                       name="external_url"
+							   size="18"
+							   value="http://"
+		                       />
+		          </div>
+				  
+				  <input class="context addExternalButton"
+				         type="submit"
+		                 value="Add"
+		                 name="form.button.Add"
+						 i18n:attributes="value;"
+		                 />
+		        </div>
+			</fieldset>		
+	     </form>
+	</dd>
+	<dt class="portletFooter">
+      <span class="portletBottomLeft"></span>
+
+      <span class="portletBottomRight"></span>
     </dt>
-
-    <dd class="portletItem odd">
-        Body text
-    </dd>
-
-    <dd class="portletFooter">
-        <span class="portletBottomLeft"></span>
-        Footer
-        <span class="portletBottomRight"></span>
-    </dd>
 
 </dl>

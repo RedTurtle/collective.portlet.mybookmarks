@@ -1,14 +1,10 @@
-from zope.interface import implements
-
-from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.portlets.portlets import base
-
-from zope import schema
-from zope.formlib import form
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
 from collective.portlet.mybookmarks import MyBookmarksPortletMessageFactory as _
-
+from plone.app.portlets.portlets import base
+from plone.memoize.instance import memoize
+from plone.portlets.interfaces import IPortletDataProvider
+from zope.interface import implements
 
 class IMyBookmarksPortlet(IPortletDataProvider):
     """A portlet
@@ -18,14 +14,6 @@ class IMyBookmarksPortlet(IPortletDataProvider):
     same.
     """
 
-    # TODO: Add any zope.schema fields here to capture portlet configuration
-    # information. Alternatively, if there are no settings, leave this as an
-    # empty interface - see also notes around the add form and edit form
-    # below.
-
-    # some_field = schema.TextLine(title=_(u"Some field"),
-    #                              description=_(u"A field to use"),
-    #                              required=True)
 
 
 class Assignment(base.Assignment):
@@ -36,17 +24,6 @@ class Assignment(base.Assignment):
     """
 
     implements(IMyBookmarksPortlet)
-
-    # TODO: Set default values for the configurable parameters here
-
-    # some_field = u""
-
-    # TODO: Add keyword parameters for configurable parameters here
-    # def __init__(self, some_field=u""):
-    #    self.some_field = some_field
-
-    def __init__(self):
-        pass
 
     @property
     def title(self):
@@ -65,40 +42,60 @@ class Renderer(base.Renderer):
     """
 
     render = ViewPageTemplateFile('mybookmarksportlet.pt')
+    
+    @property
+    @memoize
+    def results(self):
+        pc = getToolByName(self.context, 'portal_catalog')
+        pm = getToolByName(self.context, 'portal_membership')
+        
+        user = pm.getAuthenticatedMember()
+        fullname = user.getProperty('fullname', None)
+        bookmarks = [x for x in user.getProperty('bookmarks', None)]
+        external_bookmarks = [x for x in user.getProperty('external_bookmarks', None)]
+        bookmarks_list = []
+        for bookmark in bookmarks:
+            try:
+                res = pc.searchResults(UID = bookmark)
+                for brain in res:
+                    try:
+                        obj = brain.getObject()
+                    except:
+                        pass
+
+                bookmark_dict = {}
+                bookmark_dict['Title'] = obj.Title()
+                bookmark_dict['Description'] = obj.Description()
+                bookmark_dict['url'] = obj.absolute_url
+                bookmark_dict['removeValue'] = bookmark
+                bookmark_dict['bookmark_type'] = 'bookmarks'
+                bookmarks_list.append(bookmark_dict)
+                
+            except IndexError:
+                self.context.plone_log("ERROR Bookmark '%s' for user %s" %(x,fullname))
+                bookmarks.remove(x)
+                bookmarks = tuple(bookmarks)
+                user.setMemberProperties({'bookmarks':bookmarks})
+                    
+        for bookmark in external_bookmarks:
+            bookmark_values=bookmark.split('|')
+            bookmark_dict = {}
+            bookmark_dict['Title'] = bookmark_values[0]
+            bookmark_dict['url'] = bookmark_values[1]
+            bookmark_dict['removeValue'] = bookmark
+            bookmark_dict['bookmark_type'] = 'external_bookmarks'
+            bookmarks_list.append(bookmark_dict)
+        return bookmarks_list
 
 
-class AddForm(base.AddForm):
+class AddForm(base.NullAddForm):
     """Portlet add form.
 
     This is registered in configure.zcml. The form_fields variable tells
     zope.formlib which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
-    form_fields = form.Fields(IMyBookmarksPortlet)
+    def create(self):
+        assignment = Assignment()
+        return assignment
 
-    def create(self, data):
-        return Assignment(**data)
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can use the next AddForm implementation instead of the previous.
-
-# class AddForm(base.NullAddForm):
-#     """Portlet add form.
-#     """
-#     def create(self):
-#         return Assignment()
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can remove the EditForm class definition and delete the editview
-# attribute from the <plone:portlet /> registration in configure.zcml
-
-
-class EditForm(base.EditForm):
-    """Portlet edit form.
-
-    This is registered with configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display.
-    """
-    form_fields = form.Fields(IMyBookmarksPortlet)

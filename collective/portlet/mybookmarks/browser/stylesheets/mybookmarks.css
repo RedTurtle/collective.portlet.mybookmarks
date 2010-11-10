@@ -1,0 +1,23 @@
+.bookmarkIcon {
+    padding-right: 4px;
+}
+
+.portletMyBookmarksPortlet dd.portletItem {
+    padding: 0.4em;
+}
+
+.externalField{
+	clear:both;
+}
+
+#externalBookmarkFieldset{
+	padding:0 0.1em 1em 0.1em;
+}
+
+.hiddenBookmarkInformation{
+	display:none;
+}
+
+.addExternalButton{
+	margin-top:1em;
+}

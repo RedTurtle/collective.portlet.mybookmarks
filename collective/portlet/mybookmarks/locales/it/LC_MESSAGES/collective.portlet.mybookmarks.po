@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+
+"Project-Id-Version: collective.portlet.mybookmarks\n"
+"POT-Creation-Date: 2010-11-10 09:47+0000\n"
+"PO-Revision-Date: 2010-11-10 09:47+0000\n"
+"Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
+"Language-Team: RedTurtle Technology <info@redturtle.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.portlet.mybookmarks\n"
+
+#. Default: "Personal bookmarks"
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_title"
+msgstr "Bookmark personali"
+
+#. Default: "Remove bookmark"
+#: ./mybookmarksportlet.pt
+msgid "Remove bookmark"
+msgstr "Rimuovi bookmark"
+
+#. Default: "Add external bookmark"
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_add_external_title"
+msgstr "Aggiungi bookmark esterno"
+
+#. Default: "Add external bookmark"
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_js_label"
+msgstr "Bookmark esterno"
+
+#. Default: "Title"
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_external_title"
+msgstr "Titolo"
+
+#. Default: "Insert the bookmark title."
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_external_title_help"
+msgstr "Titolo del bookmark"
+
+#. Default: "Url"
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_external_url"
+msgstr "Url"
+
+#. Default: "Insert the bookmark url."
+#: ./mybookmarksportlet.pt
+msgid "mybookmarks_external_url_help"
+msgstr "Url del bookmark."
+
+#. Default: "Add"
+#: ./mybookmarksportlet.pt
+msgid "Add"
+msgstr "Aggiungi"
+
+#. Default: "External bookmarks: all the required fields must be filled."
+#: ./browser/manage_bookmarks.py
+msgid "External bookmarks: all the required fields must be filled."
+msgstr "Bookmark esterni: devi riempire tutti i campi obbligatori."
+
+
+#. Default: "Bookmark removed."
+#: ./browser/manage_bookmarks.py
+msgid "Bookmark removed."
+msgstr "Bookmark rimosso."
+
+#. Default: "Bookmark not present in list."
+#: ./browser/manage_bookmarks.py
+msgid "Bookmark not present in list."
+msgstr "Bookmark non presente in elenco."
+
+#. Default: "Bookmark added."
+#: ./browser/manage_bookmarks.py
+msgid "Bookmark added."
+msgstr "Bookmark aggiunto."
+
+#. Default: "Bookmark already present."
+#: ./browser/manage_bookmarks.py
+msgid "Bookmark already present."
+msgstr "Bookmark già presente."
+
+#. Default: "Add the current object to your bookmarks list"
+#: ./
+msgid "Add the current object to your bookmarks list"
+msgstr "Aggiungi l'oggetto corrente alla lista dei bookmark"
+
+#. Default: ""
+#: ./
+msgid ""
+msgstr ""
+
+#. Default: ""
+#: ./
+msgid ""
+msgstr ""

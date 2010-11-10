@@ -18,74 +18,74 @@ msgstr ""
 #. Default: "Personal bookmarks"
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_title"
-msgstr "Bookmark personali"
+msgstr ""
 
 #. Default: "Remove bookmark"
 #: ./mybookmarksportlet.pt
 msgid "Remove bookmark"
-msgstr "Rimuovi bookmark"
+msgstr ""
 
 #. Default: "Add external bookmark"
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_add_external_title"
-msgstr "Aggiungi bookmark esterno"
+msgstr ""
 
 #. Default: "Add external bookmark"
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_js_label"
-msgstr "Bookmark esterno"
+msgstr ""
 
 #. Default: "Title"
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_external_title"
-msgstr "Titolo"
+msgstr ""
 
 #. Default: "Insert the bookmark title."
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_external_title_help"
-msgstr "Titolo del bookmark"
+msgstr ""
 
 #. Default: "Url"
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_external_url"
-msgstr "Url"
+msgstr ""
 
 #. Default: "Insert the bookmark url."
 #: ./mybookmarksportlet.pt
 msgid "mybookmarks_external_url_help"
-msgstr "Url del bookmark."
+msgstr ""
 
 #. Default: "Add"
 #: ./mybookmarksportlet.pt
 msgid "Add"
-msgstr "Aggiungi"
+msgstr ""
 
 #. Default: "External bookmarks: all the required fields must be filled."
 #: ./browser/manage_bookmarks.py
 msgid "External bookmarks: all the required fields must be filled."
-msgstr "Bookmark esterni: devi riempire tutti i campi obbligatori."
+msgstr ""
 
 #. Default: "Bookmark removed."
 #: ./browser/manage_bookmarks.py
 msgid "Bookmark removed."
-msgstr "Bookmark rimosso."
+msgstr ""
 
 #. Default: "Bookmark not present in list."
 #: ./browser/manage_bookmarks.py
 msgid "Bookmark not present in list."
-msgstr "Bookmark non presente in elenco."
+msgstr ""
 
 #. Default: "Bookmark added."
 #: ./browser/manage_bookmarks.py
 msgid "Bookmark added."
-msgstr "Bookmark aggiunto."
+msgstr ""
 
 #. Default: "Bookmark already present."
 #: ./browser/manage_bookmarks.py
 msgid "Bookmark already present."
-msgstr "Bookmark già presente."
+msgstr ""
 
 #. Default: "Add the current object to your bookmarks list"
 #: ./profiles/default/actions.xml
 msgid "Add the current object to your bookmarks list"
-msgstr "Aggiungi l'oggetto corrente alla lista dei bookmark"
+msgstr ""

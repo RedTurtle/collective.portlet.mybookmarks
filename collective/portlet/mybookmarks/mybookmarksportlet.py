@@ -44,6 +44,14 @@ class Renderer(base.Renderer):
     render = ViewPageTemplateFile('mybookmarksportlet.pt')
     
     @property
+    def available(self):
+        
+        pm = getToolByName(self.context, 'portal_membership')
+        if pm.isAnonymousUser():
+            return False
+        return True
+    
+    @property
     @memoize
     def results(self):
         pc = getToolByName(self.context, 'portal_catalog')
@@ -51,29 +59,31 @@ class Renderer(base.Renderer):
         
         user = pm.getAuthenticatedMember()
         fullname = user.getProperty('fullname', None)
-        bookmarks = [x for x in user.getProperty('bookmarks', None)]
-        external_bookmarks = [x for x in user.getProperty('external_bookmarks', None)]
+        bookmarks = [x for x in user.getProperty('bookmarks', ())]
+        external_bookmarks = [x for x in user.getProperty('external_bookmarks', ())]
         bookmarks_list = []
+        if bookmarks:
+            portal_types = getToolByName(self.context, 'portal_types')
+            portal_properties = getToolByName(self.context, 'portal_properties')
+            site_properties = getattr(portal_properties, 'site_properties')
+            if site_properties.hasProperty('types_not_searched'):
+                search_types=[x for x
+                              in portal_types.keys()
+                              if x not in site_properties.getProperty('types_not_searched')]
         for bookmark in bookmarks:
-            try:
-                res = pc.searchResults(UID = bookmark)
-                for brain in res:
-                    try:
-                        obj = brain.getObject()
-                    except:
-                        pass
-
+            res = pc.searchResults(UID = bookmark,portal_type=search_types)
+            if res:
                 bookmark_dict = {}
-                bookmark_dict['Title'] = obj.Title()
-                bookmark_dict['Description'] = obj.Description()
-                bookmark_dict['url'] = obj.absolute_url
+                bookmark_dict['Title'] = res[0].Title
+                bookmark_dict['Description'] = res[0].Description
+                bookmark_dict['url'] = res[0].getURL()
                 bookmark_dict['removeValue'] = bookmark
                 bookmark_dict['bookmark_type'] = 'bookmarks'
                 bookmarks_list.append(bookmark_dict)
                 
-            except IndexError:
-                self.context.plone_log("ERROR Bookmark '%s' for user %s" %(x,fullname))
-                bookmarks.remove(x)
+            else:
+                self.context.plone_log("ERROR Bookmark '%s' for user %s" %(bookmark,fullname))
+                bookmarks.remove(bookmark)
                 bookmarks = tuple(bookmarks)
                 user.setMemberProperties({'bookmarks':bookmarks})
                     
@@ -85,6 +95,7 @@ class Renderer(base.Renderer):
             bookmark_dict['removeValue'] = bookmark
             bookmark_dict['bookmark_type'] = 'external_bookmarks'
             bookmarks_list.append(bookmark_dict)
+        bookmarks_list.sort(lambda x,y:cmp(x['Title'].lower(),y['Title'].lower()))
         return bookmarks_list
 
 

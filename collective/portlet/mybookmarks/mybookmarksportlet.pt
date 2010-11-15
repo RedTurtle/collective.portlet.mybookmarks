@@ -12,9 +12,8 @@
 	<tal:bookmarks repeat="bookmark view/results"
 				 condition="view/results">
 				 	
-	<dd class="portletItem" tal:define="delete python: user.has_permission('collective.portlet.bookmarks: Remove User Bookmark', here);">
-	  <a tal:condition="delete" 
-	  	 tal:attributes="href string:${here/absolute_url}/manage_bookmarks?remove_bookmark=${bookmark/removeValue}&bookmark_type=${bookmark/bookmark_type}"
+	<dd class="portletItem">
+	  <a tal:attributes="href string:${here/absolute_url}/manage_bookmarks?remove_bookmark=${bookmark/removeValue}&bookmark_type=${bookmark/bookmark_type}"
 	  	 title="Remove bookmark" i18n:attributes="title">
 	  	<img class="bookmarkIcon" src="" alt="[DEL]" tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png"/>
 	  </a>
@@ -22,7 +21,7 @@
 	</dd>
 	</tal:bookmarks>
 	<dd id="addExternalBlock" class="portletItem">
-		<span id="hiddenAbsoluteUrl" class="hiddenBookmarkInformation" tal:content="here/absolute_url"/>
+		<span id="hiddenAbsoluteUrl" class="hiddenBookmarkInformation" tal:content="here/portal_url"/>
 		<span id="hiddenJsLabel" class="hiddenBookmarkInformation" i18n:translate="mybookmarks_js_label">External bookmark</span>
 		<form method="POST"
 			  class="bookmarkHiddenStructure"

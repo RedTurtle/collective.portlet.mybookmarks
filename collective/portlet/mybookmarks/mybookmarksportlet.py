@@ -4,6 +4,8 @@ from collective.portlet.mybookmarks import MyBookmarksPortletMessageFactory as _
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
+from zope import schema
+from zope.formlib import form
 from zope.interface import implements
 
 class IMyBookmarksPortlet(IPortletDataProvider):
@@ -13,6 +15,10 @@ class IMyBookmarksPortlet(IPortletDataProvider):
     data that is being rendered and the portlet assignment itself are the
     same.
     """
+    portletTitle = schema.TextLine(title=_(u"Title of the portlet"),
+                                           description = _(u"Insert the title of the portlet."),
+                                           default=_("Personal bookmark"),
+                                           required = True)
 
 
 
@@ -24,13 +30,18 @@ class Assignment(base.Assignment):
     """
 
     implements(IMyBookmarksPortlet)
-
+    
+    def __init__(self, portletTitle=''):
+        self.portletTitle=portletTitle
+    
     @property
     def title(self):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return "My bookmarks portlet"
+        if self.portletTitle:
+            return self.portletTitle
+        return _(u"Personal bookmark")
 
 
 class Renderer(base.Renderer):
@@ -99,14 +110,24 @@ class Renderer(base.Renderer):
         return bookmarks_list
 
 
-class AddForm(base.NullAddForm):
+class AddForm(base.AddForm):
     """Portlet add form.
 
     This is registered in configure.zcml. The form_fields variable tells
     zope.formlib which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
-    def create(self):
-        assignment = Assignment()
-        return assignment
+    
+    form_fields = form.Fields(IMyBookmarksPortlet)
+    def create(self, data):
+        return Assignment(**data)
+    
+    
+class EditForm(base.EditForm):
+    """Portlet edit form.
 
+    This is registered with configure.zcml. The form_fields variable tells
+    zope.formlib which fields to display.
+    """
+    form_fields = form.Fields(IMyBookmarksPortlet)
+    

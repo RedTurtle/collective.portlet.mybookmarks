@@ -29,7 +29,7 @@
 	          action=""
 			  tal:attributes="action string:${here/absolute_url}/manage_bookmarks">
 	    	<fieldset id="externalBookmarkFieldset">
-				<legend i18n:translate="mybookmarks_add_external_title">Add external bookmark</legend>
+				<legend i18n:translate="mybookmarks_add_external_title">New external bookmark</legend>
 		        <div class="formControls">
 				  
 				  <input type="hidden" name="form.submitted" value="1" />

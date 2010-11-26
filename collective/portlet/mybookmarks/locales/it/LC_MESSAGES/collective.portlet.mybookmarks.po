@@ -81,10 +81,10 @@ msgstr "Titolo della portlet"
 msgid "label_required"
 msgstr "(Obbligatorio)"
 
-#. Default: "Add external bookmark"
+#. Default: "New external bookmark"
 #: ./mybookmarksportlet.pt:32
 msgid "mybookmarks_add_external_title"
-msgstr "Aggiungi bookmark esterno"
+msgstr "Nuovo bookmark esterno"
 
 #. Default: "Title"
 #: ./mybookmarksportlet.pt:38

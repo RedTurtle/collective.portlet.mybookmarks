@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.0.1-SVN_UNRELEASED (2010-11-??)
+1.1.0 (2010-12-03)
 ------------------
 
 * fixed translation
+* deleting method
 
 1.0.0 (2010-11-22)
 ------------------

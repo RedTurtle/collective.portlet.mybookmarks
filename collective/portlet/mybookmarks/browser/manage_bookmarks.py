@@ -14,7 +14,7 @@ class ManageBookmarksView(BrowserView):
         If nothing is passed, the current object will be added as a bookmark.
         If the external bookmark form is filled, the bookmark will be added in external_bookmarks property.
         """
-        if self.request.form.has_key('remove_bookmark') and self.request.form.has_key('bookmark_type'):
+        if self.request.form.has_key('delete_submitted') and self.request.form.has_key('bookmark_type'):
             return self.removeBookmark(self.request.form.get('remove_bookmark',''),self.request.form.get('bookmark_type',''))
         if not self.request.form.has_key('form.button.Add'):
             return self.addBookmark(self.context.UID(),'bookmarks')

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-11-18 09:58+0000\n"
+"POT-Creation-Date: 2010-12-02 11:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Domain: collective.portlet.mybookmarks\n"
 
 #. Default: "Add"
-#: ./mybookmarksportlet.pt:67
+#: ./mybookmarksportlet.pt:83
 msgid "Add"
 msgstr ""
 
@@ -60,13 +60,13 @@ msgstr ""
 msgid "Personal bookmark"
 msgstr ""
 
-#. Default: "Remove bookmark"
-#: ./mybookmarksportlet.pt:16
-msgid "Remove bookmark"
+#. Default: "Remove"
+#: ./mybookmarksportlet.pt:27
+msgid "Remove"
 msgstr ""
 
 #. Default: "Required"
-#: ./mybookmarksportlet.pt:39
+#: ./mybookmarksportlet.pt:55
 msgid "Required"
 msgstr ""
 
@@ -75,37 +75,37 @@ msgid "Title of the portlet"
 msgstr ""
 
 #. Default: "(Required)"
-#: ./mybookmarksportlet.pt:39
+#: ./mybookmarksportlet.pt:55
 msgid "label_required"
 msgstr ""
 
-#. Default: "Add external bookmark"
-#: ./mybookmarksportlet.pt:32
+#. Default: "New external bookmark"
+#: ./mybookmarksportlet.pt:48
 msgid "mybookmarks_add_external_title"
 msgstr ""
 
 #. Default: "Title"
-#: ./mybookmarksportlet.pt:38
+#: ./mybookmarksportlet.pt:54
 msgid "mybookmarks_external_title"
 msgstr ""
 
 #. Default: "Bookmark title."
-#: ./mybookmarksportlet.pt:42
+#: ./mybookmarksportlet.pt:58
 msgid "mybookmarks_external_title_help"
 msgstr ""
 
 #. Default: "Url"
-#: ./mybookmarksportlet.pt:52
+#: ./mybookmarksportlet.pt:68
 msgid "mybookmarks_external_url"
 msgstr ""
 
 #. Default: "Bookmark url."
-#: ./mybookmarksportlet.pt:56
+#: ./mybookmarksportlet.pt:72
 msgid "mybookmarks_external_url_help"
 msgstr ""
 
 #. Default: "External bookmark"
-#: ./mybookmarksportlet.pt:25
+#: ./mybookmarksportlet.pt:41
 msgid "mybookmarks_js_label"
 msgstr ""
 

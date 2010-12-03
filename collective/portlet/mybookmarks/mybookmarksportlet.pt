@@ -13,10 +13,26 @@
 				 condition="view/results">
 				 	
 	<dd class="portletItem">
-	  <a tal:attributes="href string:${here/absolute_url}/manage_bookmarks?remove_bookmark=${bookmark/removeValue}&bookmark_type=${bookmark/bookmark_type}"
-	  	 title="Remove bookmark" i18n:attributes="title">
-	  	<img class="bookmarkIcon" src="" alt="[DEL]" tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png"/>
-	  </a>
+	  <form method="POST"
+	          action=""
+			  tal:attributes="action string:${here/absolute_url}/manage_bookmarks">
+	  		<input type="hidden" name="remove_bookmark" value=""
+				   tal:attributes="value bookmark/removeValue"/>
+			
+			<input type="hidden" name="bookmark_type" value=""
+				   tal:attributes="value bookmark/bookmark_type"/>
+			
+			<input type="hidden" name="delete_submitted" value="1"/>
+				   
+			<input class="removeBookmarkButton"
+	 	           type="image"
+		           alt="[DEL]"
+		           name="Remove"
+				   i18n:attributes="name"
+				   tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png"
+		    />
+	  </form>
+
 	  <a tal:attributes="title bookmark/Description|bookmark/Title; href bookmark/url" tal:content="bookmark/Title" />
 	</dd>
 	</tal:bookmarks>

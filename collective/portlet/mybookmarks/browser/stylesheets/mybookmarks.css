@@ -21,3 +21,10 @@
 .addExternalButton{
 	margin-top:1em;
 }
+
+.removeBookmarkButton{
+	float:left;
+	border-style:none;
+	background:none;
+	margin-right: 0.3em;
+}

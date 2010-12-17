@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.1 (2010-12-17)
+------------------
+
+* include package "plone.app.portlets" into zcml before registration of portlet [mirco]
+
 1.1.0 (2010-12-03)
 ------------------
 

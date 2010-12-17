@@ -19,8 +19,10 @@
        description="A portlet that allow to store some internal and external bookmarks"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
+       
+    <include package="plone.app.portlets" /> 
 
-     <plone:portlet
+    <plone:portlet
          name="collective.portlet.mybookmarks.MyBookmarksPortlet"
          interface=".mybookmarksportlet.IMyBookmarksPortlet"
          assignment=".mybookmarksportlet.Assignment"

@@ -13,6 +13,13 @@
 	/>
   
   
+  <browser:page
+    for="*"
+    name="confirm_delete_bookmark"
+    class=".manage_bookmarks.ConfirmDeleteView"
+    permission="zope2.View"
+    />
+  
   <browser:resourceDirectory
       name="collective.portlet.mybookmarks.images"
       directory="images"

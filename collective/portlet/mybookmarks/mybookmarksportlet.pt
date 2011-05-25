@@ -1,5 +1,6 @@
 <dl class="portlet portletMyBookmarksPortlet"
-    i18n:domain="collective.portlet.mybookmarks">
+    i18n:domain="collective.portlet.mybookmarks"
+	tal:define="bookmarks view/results">
 
     <dt class="portletHeader">
 		<span class="portletTopLeft"></span>
@@ -9,15 +10,18 @@
         <span class="portletTopRight"></span>
 	</dt>
 	
-	<tal:bookmarks repeat="bookmark view/results"
-				 condition="view/results">
+	<tal:bookmarks repeat="bookmark bookmarks"
+				 condition="bookmarks">
 				 	
 	<dd class="portletItem">
 	  <form method="POST"
 	          action=""
-			  tal:attributes="action string:${here/absolute_url}/manage_bookmarks">
+			  tal:attributes="action string:${here/absolute_url}/confirm_delete_bookmark">
 	  		<input type="hidden" name="remove_bookmark" value=""
 				   tal:attributes="value bookmark/removeValue"/>
+			
+			<input type="hidden" name="bookmark_title" value=""
+                   tal:attributes="value bookmark/Title"/>
 			
 			<input type="hidden" name="bookmark_type" value=""
 				   tal:attributes="value bookmark/bookmark_type"/>
@@ -26,10 +30,11 @@
 				   
 			<input class="removeBookmarkButton"
 	 	           type="image"
-		           alt="[DEL]"
+		           alt=""
 		           name="Remove"
 				   i18n:attributes="name"
-				   tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png"
+				   tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png;
+				                   alt string:delete ${bookmark/Title}"
 		    />
 	  </form>
 

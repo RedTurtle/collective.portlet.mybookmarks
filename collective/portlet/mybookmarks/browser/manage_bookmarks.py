@@ -4,6 +4,20 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.mybookmarks import MyBookmarksPortletMessageFactory as _
 
+class ConfirmDeleteView(BrowserView):
+    """
+    A view to confirm delete
+    """    
+    template = ViewPageTemplateFile("confirm_delete_bookmark.pt")
+    
+    def __call__(self):
+        """
+        """
+        if not self.request.form.has_key('delete_submitted') or not self.request.form.has_key('bookmark_type') or not self.request.form.has_key('remove_bookmark'):
+            return self.doReturn(_(u'Remove bookmark: you must select a bookmark to remove from the portlet'), 'error')
+        return self.template()
+
+
 class ManageBookmarksView(BrowserView):
     """
     A view to manage personal bookmarks
@@ -14,8 +28,13 @@ class ManageBookmarksView(BrowserView):
         If nothing is passed, the current object will be added as a bookmark.
         If the external bookmark form is filled, the bookmark will be added in external_bookmarks property.
         """
-        if self.request.form.has_key('delete_submitted') and self.request.form.has_key('bookmark_type'):
-            return self.removeBookmark(self.request.form.get('remove_bookmark',''),self.request.form.get('bookmark_type',''))
+        if self.request.form.has_key('delete_confirmed'):
+            if self.request.form.has_key('form.button.Cancel'):
+                return self.doReturn(_(u'Removal bookmark undone'), 'info')
+            elif self.request.form.has_key('form.button.Delete') and self.request.form.has_key('bookmark_type'):
+                return self.removeBookmark(self.request.form.get('remove_bookmark',''),self.request.form.get('bookmark_type',''))
+            else:
+                return self.doReturn(_(u'Error in removal process'), 'warning')
         if not self.request.form.has_key('form.button.Add'):
             return self.addBookmark(self.context.UID(),'bookmarks')
         elif self.request.form.has_key('form.submitted'):

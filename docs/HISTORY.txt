@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.2 (2011-??-??)
+1.1.2 (2011-07-08)
 ------------------
 
 * added confirm delete view [andrea]

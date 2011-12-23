@@ -87,7 +87,7 @@ class Renderer(base.Renderer):
                 bookmark_dict = {}
                 bookmark_dict['Title'] = res[0].Title
                 bookmark_dict['Description'] = res[0].Description
-                bookmark_dict['url'] = res[0].getURL()
+                bookmark_dict['url'] = "%s/view" %res[0].getURL()
                 bookmark_dict['removeValue'] = bookmark
                 bookmark_dict['bookmark_type'] = 'bookmarks'
                 bookmarks_list.append(bookmark_dict)

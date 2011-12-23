@@ -78,4 +78,5 @@ class ManageBookmarksView(BrowserView):
     def doReturn(self,message,type):
         pu = getToolByName(self.context, "plone_utils")
         pu.addPortalMessage(message, type=type)
-        self.request.RESPONSE.redirect(self.context.absolute_url())
+        return_url="%s/view" %self.context.absolute_url()
+        self.request.RESPONSE.redirect(return_url)

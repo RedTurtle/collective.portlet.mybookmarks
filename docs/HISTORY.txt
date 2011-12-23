@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.3 (2012-01-??)
+------------------
+
+* added "/view" to object bookmarks, to avoid automatic download of files [andrea]
+
 1.1.2 (2011-07-08)
 ------------------
 

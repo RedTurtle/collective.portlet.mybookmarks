@@ -3,6 +3,10 @@ Introduction
 A simple portlet that allow to manage some personal bookmarks that can be site objects or external links.
 The bookmarks are stored in two member properties.
 
+Settings
+========
+
+
 Usage
 ============
 If you want to add an object to bookmarks list, just click on the "bookmark" link in document_actions.

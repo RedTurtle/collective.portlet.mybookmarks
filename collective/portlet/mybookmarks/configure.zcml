@@ -11,6 +11,7 @@
 	<i18n:registerTranslations directory="locales" />
 	
 	<include package=".browser" />
+  <include file="upgrades.zcml" />
 
     <genericsetup:registerProfile
        name="default"
@@ -32,5 +33,11 @@
 		 editview=".mybookmarksportlet.EditForm"
          />
 	
+  <genericsetup:importStep
+    name="mybookmarks.importvarious"
+    title="My bookmarks portlet"
+    description="Configures My bookmarks portlet properties"
+    handler="collective.portlet.mybookmarks.exportimport.import_various"
+    />
 
 </configure>

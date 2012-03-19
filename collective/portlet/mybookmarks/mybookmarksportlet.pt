@@ -9,7 +9,17 @@
         </span>
         <span class="portletTopRight"></span>
 	</dt>
-	
+	<tal:default_bookmarks
+		define="default_bookmarks view/default_bookmarks"
+		condition="default_bookmarks">
+		<dd class="portletItem"
+			tal:repeat="bookmark default_bookmarks">
+			<img tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/lock.gif"
+				 alt="default link"
+				 title="Default link"/>
+			<a tal:attributes="title bookmark/Title; href bookmark/url" tal:content="bookmark/Title" />
+		</dd>
+	</tal:default_bookmarks>
 	<tal:bookmarks repeat="bookmark bookmarks"
 				 condition="bookmarks">
 				 	

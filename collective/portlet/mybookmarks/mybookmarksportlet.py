@@ -146,7 +146,7 @@ class Renderer(base.Renderer):
         bookmark_dict = {}
         bookmark_dict['Title'] = bookmark_values[0]
         bookmark_dict['url'] = bookmark_values[1]
-        bookmark_dict['removeValue'] = bookmark_values
+        bookmark_dict['removeValue'] = "|". join(bookmark_values)
         bookmark_dict['bookmark_type'] = 'external_bookmarks'
         return bookmark_dict
 

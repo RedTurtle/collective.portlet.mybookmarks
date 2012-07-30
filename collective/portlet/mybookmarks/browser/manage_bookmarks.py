@@ -13,7 +13,7 @@ class ConfirmDeleteView(BrowserView):
     def __call__(self):
         """
         """
-        if not self.request.form.has_key('delete_submitted') or not self.request.form.has_key('bookmark_type') or not self.request.form.has_key('remove_bookmark'):
+        if not 'delete_submitted' in self.request.form.keys() or not 'bookmark_type' in self.request.form.keys() or not 'remove_bookmark' in self.request.form.keys():
             return self.doReturn(_(u'Remove bookmark: you must select a bookmark to remove from the portlet'), 'error')
         return self.template()
 
@@ -21,62 +21,62 @@ class ConfirmDeleteView(BrowserView):
 class ManageBookmarksView(BrowserView):
     """
     A view to manage personal bookmarks
-    """    
+    """
     def __call__(self):
         """
         If there is "remove_bookmark"  in the request, the passed bookmark will be removed.
         If nothing is passed, the current object will be added as a bookmark.
         If the external bookmark form is filled, the bookmark will be added in external_bookmarks property.
         """
-        if self.request.form.has_key('delete_confirmed'):
-            if self.request.form.has_key('form.button.Cancel'):
+        if 'delete_confirmed' in self.request.form.keys():
+            if 'form.button.Cancel' in self.request.form.keys():
                 return self.doReturn(_(u'Removal bookmark undone'), 'info')
-            elif self.request.form.has_key('form.button.Delete') and self.request.form.has_key('bookmark_type'):
-                return self.removeBookmark(self.request.form.get('remove_bookmark',''),self.request.form.get('bookmark_type',''))
+            elif 'form.button.Delete' in self.request.form.keys() and 'bookmark_type' in self.request.form.keys():
+                return self.removeBookmark(self.request.form.get('remove_bookmark', ''), self.request.form.get('bookmark_type', ''))
             else:
                 return self.doReturn(_(u'Error in removal process'), 'warning')
-        if not self.request.form.has_key('form.button.Add'):
-            return self.addBookmark(self.context.UID(),'bookmarks')
-        elif self.request.form.has_key('form.submitted'):
+        if not 'form.button.Add' in self.request.form.keys():
+            return self.addBookmark(self.context.UID(), 'bookmarks')
+        elif 'form.submitted' in self.request.form.keys():
             if not self.request.form.get('external_title') or not self.request.form.get('external_url'):
                 return self.doReturn(_(u'External bookmarks: all the required fields must be filled.'), 'error')
-            external_string="%s|%s"%(self.request.form.get('external_title'),self.request.form.get('external_url'))
-            return self.addBookmark(external_string,'external_bookmarks')
-    
-    def removeBookmark(self,element,bookmark_type):
+            external_string = "%s|%s" % (self.request.form.get('external_title', ''), self.request.form.get('external_url', ''))
+            return self.addBookmark(external_string, 'external_bookmarks')
+
+    def removeBookmark(self, element, bookmark_type):
         """
         remove the bookmark from bookmark_type property
         """
-        pm = getToolByName(self.context,'portal_membership')
+        pm = getToolByName(self.context, 'portal_membership')
         user = pm.getAuthenticatedMember()
         user_bookmarks = [x for x in user.getProperty(bookmark_type, None)]
         if element in user_bookmarks:
             user_bookmarks.remove(element)
-            bookmarks=tuple(user_bookmarks)
-            user.setMemberProperties({bookmark_type:bookmarks})
+            bookmarks = tuple(user_bookmarks)
+            user.setMemberProperties({bookmark_type: bookmarks})
             return self.doReturn(_(u'Bookmark removed.'), 'info')
         return self.doReturn(_(u'Bookmark not present in list.'), 'error')
-    
-    def addBookmark(self,element,bookmark_type):
+
+    def addBookmark(self, element, bookmark_type):
         """
         Add the bookmark to bookmark_type property
         """
-        pm = getToolByName(self.context,'portal_membership')
+        pm = getToolByName(self.context, 'portal_membership')
         user = pm.getAuthenticatedMember()
         user_bookmarks = [x for x in user.getProperty(bookmark_type, None)]
         if not user_bookmarks:
-            user.setMemberProperties({bookmark_type:(element,)})
+            user.setMemberProperties({bookmark_type: (element,)})
             return self.doReturn(_(u'Bookmark added.'), 'info')
-        
+
         if element in user_bookmarks:
             return self.doReturn(_(u'Bookmark already present.'), 'error')
         user_bookmarks.append(element)
-        bookmarks=tuple(user_bookmarks)
-        user.setMemberProperties({bookmark_type:bookmarks})
+        bookmarks = tuple(user_bookmarks)
+        user.setMemberProperties({bookmark_type: bookmarks})
         return self.doReturn(_(u'Bookmark added.'), 'info')
 
-    def doReturn(self,message,type):
+    def doReturn(self, message, type):
         pu = getToolByName(self.context, "plone_utils")
         pu.addPortalMessage(message, type=type)
-        return_url="%s/view" %self.context.absolute_url()
+        return_url = "%s/view" % self.context.absolute_url()
         self.request.RESPONSE.redirect(return_url)

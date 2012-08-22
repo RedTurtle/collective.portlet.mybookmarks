@@ -25,7 +25,7 @@ setup(name='collective.portlet.mybookmarks',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'collective.autopermission',
       ],
       entry_points="""
       # -*- entry_points -*-

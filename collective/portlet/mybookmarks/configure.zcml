@@ -6,16 +6,17 @@
 	xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.portlet.mybookmarks">
 
-    <five:registerPackage package="." initialize=".initialize" />
+  <five:registerPackage package="." initialize=".initialize" />
 	
 	<i18n:registerTranslations directory="locales" />
-	
+
+	<include package="collective.autopermission" />
   <permission
         id="collective.portlet.mybookmarks.AddUserBookmark"
         title="collective.portlet.mybookmarks: Add User Bookmark"
         />
 
-    <permission
+  <permission
         id="collective.portlet.mybookmarks.RemoveUserBookmark"
         title="collective.portlet.mybookmarks: Remove User Bookmark"
         />

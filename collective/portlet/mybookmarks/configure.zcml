@@ -10,6 +10,16 @@
 	
 	<i18n:registerTranslations directory="locales" />
 	
+  <permission
+        id="collective.portlet.mybookmarks.AddUserBookmark"
+        title="collective.portlet.mybookmarks: Add User Bookmark"
+        />
+
+    <permission
+        id="collective.portlet.mybookmarks.RemoveUserBookmark"
+        title="collective.portlet.mybookmarks: Remove User Bookmark"
+        />
+  
 	<include package=".browser" />
   <include file="upgrades.zcml" />
 

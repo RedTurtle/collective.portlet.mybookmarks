@@ -1,6 +1,6 @@
 Introduction
 ============
-A simple portlet that allow to manage some personal bookmarks that can be site objects or external links.
+A portlet that allows users to manage some personal bookmarks that can be site objects or external links.
 The bookmarks are stored in two member properties.
 
 Settings
@@ -17,6 +17,30 @@ For example:
 
 Usage
 =====
-If you want to add an object to bookmarks list, just click on the "bookmark" link in document_actions.
-To add a new external link, you need to fill two fields of the form in the portlet.
-To remove a bookmark from member properties, just click on delete icon.
+If you want to add a site content to bookmarks list, just click on the "bookmark" link in document_actions.
+
+To add a new external link, you need to fill the related form in the portlet.
+
+To remove a bookmark, just click on delete icon.
+
+Dependencies
+============
+
+This product has been tested on Plone 3.3.5 and Plone 4.2
+
+Credits
+=======
+
+Developed with the support of `Regione Emilia Romagna`__; Regione Emilia Romagna supports the `PloneGov initiative`__.
+
+__ http://www.regione.emilia-romagna.it/
+__ http://www.plonegov.it/
+
+Authors
+=======
+
+This product was developed by RedTurtle Technology team.
+
+.. image:: http://www.redturtle.net/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.net/

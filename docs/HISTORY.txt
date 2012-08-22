@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 * fix external bookmarks deletion [andrea]
+* fix Plone 4 compatibility [andrea]
 
 1.2.0 (2012-04-02)
 ------------------

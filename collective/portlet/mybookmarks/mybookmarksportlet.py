@@ -9,12 +9,10 @@ from zope.formlib import form
 from zope.interface import implements
 from collective.portlet.mybookmarks import logger
 
-class IMyBookmarksPortlet(IPortletDataProvider):
-    """A portlet
 
-    It inherits from IPortletDataProvider because for this portlet, the
-    data that is being rendered and the portlet assignment itself are the
-    same.
+class IMyBookmarksPortlet(IPortletDataProvider):
+    """
+    A portlet for user bookmarks
     """
     portletTitle = schema.TextLine(title=_(u"Title of the portlet"),
                                            description=_(u"Insert the title of the portlet."),
@@ -23,10 +21,8 @@ class IMyBookmarksPortlet(IPortletDataProvider):
 
 
 class Assignment(base.Assignment):
-    """Portlet assignment.
-
-    This is what is actually managed through the portlets UI and associated
-    with columns.
+    """
+    Portlet assignment
     """
 
     implements(IMyBookmarksPortlet)
@@ -45,11 +41,8 @@ class Assignment(base.Assignment):
 
 
 class Renderer(base.Renderer):
-    """Portlet renderer.
-
-    This is registered in configure.zcml. The referenced page template is
-    rendered, and the implicit variable 'view' will refer to an instance
-    of this class. Other methods can be added and referenced in the template.
+    """
+    Portlet renderer
     """
 
     render = ViewPageTemplateFile('mybookmarksportlet.pt')
@@ -66,7 +59,7 @@ class Renderer(base.Renderer):
     @memoize
     def results(self):
         """
-        Return a list of bookmarks
+        Return a list of user bookmarks
         """
         pc = getToolByName(self.context, 'portal_catalog')
         pm = getToolByName(self.context, 'portal_membership')
@@ -174,12 +167,10 @@ class Renderer(base.Renderer):
         bookmark_dict['bookmark_type'] = 'bookmarks'
         return bookmark_dict
 
-class AddForm(base.AddForm):
-    """Portlet add form.
 
-    This is registered in configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display. The create() method actually
-    constructs the assignment that is being added.
+class AddForm(base.AddForm):
+    """
+    Portlet add form.
     """
     form_fields = form.Fields(IMyBookmarksPortlet)
 
@@ -188,10 +179,7 @@ class AddForm(base.AddForm):
 
 
 class EditForm(base.EditForm):
-    """Portlet edit form.
-
-    This is registered with configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display.
+    """
+    Portlet edit form.
     """
     form_fields = form.Fields(IMyBookmarksPortlet)
-    

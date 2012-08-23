@@ -41,7 +41,7 @@
          view_permission="zope2.View"
          renderer=".mybookmarksportlet.Renderer"
          addview=".mybookmarksportlet.AddForm"
-		 editview=".mybookmarksportlet.EditForm"
+		     editview=".mybookmarksportlet.EditForm"
          />
 	
   <genericsetup:importStep

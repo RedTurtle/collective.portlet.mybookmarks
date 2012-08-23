@@ -1,6 +1,7 @@
 <dl class="portlet portletMyBookmarksPortlet"
     i18n:domain="collective.portlet.mybookmarks"
-	tal:define="bookmarks view/results">
+	tal:define="bookmarks view/results;
+				user context/@@plone_portal_state/member;">
 
     <dt class="portletHeader">
 		<span class="portletTopLeft"></span>
@@ -26,6 +27,7 @@
 	<dd class="portletItem">
 	  <form method="POST"
 	          action=""
+	         tal:condition="python:user.has_permission('collective.portlet.mybookmarks: Remove User Bookmark', here)"
 			  tal:attributes="action string:${here/absolute_url}/confirm_delete_bookmark">
 	  		<input type="hidden" name="remove_bookmark" value=""
 				   tal:attributes="value bookmark/removeValue"/>

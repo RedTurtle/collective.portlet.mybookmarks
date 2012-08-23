@@ -4,12 +4,13 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.mybookmarks import MyBookmarksPortletMessageFactory as _
 
+
 class ConfirmDeleteView(BrowserView):
     """
     A view to confirm delete
-    """    
+    """
     template = ViewPageTemplateFile("confirm_delete_bookmark.pt")
-    
+
     def __call__(self):
         """
         """

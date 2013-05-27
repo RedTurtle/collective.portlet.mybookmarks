@@ -107,10 +107,10 @@
 			</fieldset>		
 	     </form>
 	</dd>
-	<dt class="portletFooter">
+	<dd class="portletFooter">
       <span class="portletBottomLeft"></span>
 
       <span class="portletBottomRight"></span>
-    </dt>
+    </dd>
 
 </dl>

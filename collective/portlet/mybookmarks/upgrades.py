@@ -21,5 +21,15 @@ def to_1(context):
     Upgrades to 1.2.0 version: add default bookmarks configuration
     """
     logger.info('Upgrading collective.portlet.mybookmarks to version 1')
-    context.runImportStepFromProfile('profile-collective.portlet.mybookmarks:default', 'mybookmarks.importvarious')
+    context.runImportStepFromProfile(default_profile, 'mybookmarks.importvarious')
+    logger.info('Reinstalled My Bookmark Portlet')
+
+
+@upgrade('collective.portlet.mybookmarks', '1.3.2')
+def to_2(context):
+    """
+    Upgrades to 1.3.2 version: add new permission to add the portlet
+    """
+    logger.info('Upgrading collective.portlet.mybookmarks to version 2')
+    context.runImportStepFromProfile(default_profile, 'rolemap')
     logger.info('Reinstalled My Bookmark Portlet')

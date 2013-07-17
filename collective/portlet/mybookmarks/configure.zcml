@@ -21,6 +21,11 @@
         title="collective.portlet.mybookmarks: Remove User Bookmark"
         />
   
+  <permission
+      id="collective.portlet.mybookmarks.AddMyBookmarksPortlet"
+      title="collective.portlet.mybookmarks: Add mybookmarks portlet"
+     /> 
+
 	<include package=".browser" />
   <include file="upgrades.zcml" />
 
@@ -38,6 +43,7 @@
          name="collective.portlet.mybookmarks.MyBookmarksPortlet"
          interface=".mybookmarksportlet.IMyBookmarksPortlet"
          assignment=".mybookmarksportlet.Assignment"
+         edit_permission="collective.portlet.mybookmarks.AddMyBookmarksPortlet"
          view_permission="zope2.View"
          renderer=".mybookmarksportlet.Renderer"
          addview=".mybookmarksportlet.AddForm"

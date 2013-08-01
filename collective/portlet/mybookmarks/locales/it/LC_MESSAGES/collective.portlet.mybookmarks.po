@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.mybookmarks\n"
-"POT-Creation-Date: 2011-05-25 15:38+0000\n"
+"POT-Creation-Date: 2013-08-01 07:01+0000\n"
 "PO-Revision-Date: 2010-11-10 09:47+0000\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <info@redturtle.net>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Domain: collective.portlet.mybookmarks\n"
 
 #. Default: "Add"
-#: ./mybookmarksportlet.pt:88
+#: ./mybookmarksportlet.pt:98
 msgid "Add"
 msgstr "Aggiungi"
 
@@ -30,22 +30,22 @@ msgid "Bookmark"
 msgstr "Bookmark"
 
 #. Default: "Bookmark added."
-#: ./browser/manage_bookmarks.py:69
+#: ./browser/manage_bookmarks.py:70
 msgid "Bookmark added."
 msgstr "Bookmark aggiunto."
 
 #. Default: "Bookmark already present."
-#: ./browser/manage_bookmarks.py:72
+#: ./browser/manage_bookmarks.py:73
 msgid "Bookmark already present."
 msgstr "Bookmark già presente."
 
 #. Default: "Bookmark not present in list."
-#: ./browser/manage_bookmarks.py:58
+#: ./browser/manage_bookmarks.py:59
 msgid "Bookmark not present in list."
 msgstr "Bookmark non presente in elenco."
 
 #. Default: "Bookmark removed."
-#: ./browser/manage_bookmarks.py:57
+#: ./browser/manage_bookmarks.py:58
 msgid "Bookmark removed."
 msgstr "Bookmark rimosso."
 
@@ -54,42 +54,42 @@ msgstr "Bookmark rimosso."
 msgid "Delete"
 msgstr "Rimuovi"
 
-#: ./browser/manage_bookmarks.py:37
+#: ./browser/manage_bookmarks.py:38
 msgid "Error in removal process"
 msgstr "Errore durante la rimozione"
 
 #. Default: "External bookmarks: all the required fields must be filled."
-#: ./browser/manage_bookmarks.py:42
+#: ./browser/manage_bookmarks.py:43
 msgid "External bookmarks: all the required fields must be filled."
 msgstr "Bookmark esterni: devi riempire tutti i campi obbligatori."
 
-#: ./mybookmarksportlet.py:19
+#: ./mybookmarksportlet.py:18
 msgid "Insert the title of the portlet."
-msgstr "Inserito il titolo della portlet."
+msgstr "Inserisci il titolo della portlet."
 
-#: ./mybookmarksportlet.py:20
+#: ./mybookmarksportlet.py:19
 msgid "Personal bookmark"
 msgstr "Bookmark personali"
 
-#: ./browser/manage_bookmarks.py:33
+#: ./browser/manage_bookmarks.py:34
 msgid "Removal bookmark undone"
 msgstr "Rimozione del bookmark annullata"
 
 #. Default: "Remove"
-#: ./mybookmarksportlet.pt:31
+#: ./mybookmarksportlet.pt:41
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: ./browser/manage_bookmarks.py:17
+#: ./browser/manage_bookmarks.py:18
 msgid "Remove bookmark: you must select a bookmark to remove from the portlet"
 msgstr "Rimozione del bookmark: devi scegliere un bookmark da rimuovere dalla portlet"
 
 #. Default: "Required"
-#: ./mybookmarksportlet.pt:60
+#: ./mybookmarksportlet.pt:70
 msgid "Required"
 msgstr "Obbligatorio"
 
-#: ./mybookmarksportlet.py:18
+#: ./mybookmarksportlet.py:17
 msgid "Title of the portlet"
 msgstr "Titolo della portlet"
 
@@ -109,42 +109,37 @@ msgid "label_cancel"
 msgstr "Annulla"
 
 #. Default: "(Required)"
-#: ./mybookmarksportlet.pt:60
+#: ./mybookmarksportlet.pt:70
 msgid "label_required"
 msgstr "(Obbligatorio)"
 
 #. Default: "New external bookmark"
-#: ./mybookmarksportlet.pt:53
+#: ./mybookmarksportlet.pt:63
 msgid "mybookmarks_add_external_title"
 msgstr "Nuovo bookmark esterno"
 
 #. Default: "Title"
-#: ./mybookmarksportlet.pt:59
+#: ./mybookmarksportlet.pt:69
 msgid "mybookmarks_external_title"
 msgstr "Titolo"
 
 #. Default: "Bookmark title."
-#: ./mybookmarksportlet.pt:63
+#: ./mybookmarksportlet.pt:73
 msgid "mybookmarks_external_title_help"
 msgstr "Titolo del bookmark"
 
 #. Default: "Url"
-#: ./mybookmarksportlet.pt:73
+#: ./mybookmarksportlet.pt:83
 msgid "mybookmarks_external_url"
 msgstr "Url"
 
 #. Default: "Bookmark url."
-#: ./mybookmarksportlet.pt:77
+#: ./mybookmarksportlet.pt:87
 msgid "mybookmarks_external_url_help"
 msgstr "Url del bookmark."
 
 #. Default: "External bookmark"
-#: ./mybookmarksportlet.pt:46
+#: ./mybookmarksportlet.pt:56
 msgid "mybookmarks_js_label"
 msgstr "Bookmark esterno"
-
-#. Default: "Personal bookmarks"
-#: ./mybookmarksportlet.pt:7
-msgid "mybookmarks_title"
-msgstr "Bookmark personali"
 

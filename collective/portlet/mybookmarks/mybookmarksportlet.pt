@@ -5,9 +5,7 @@
 
     <dt class="portletHeader">
 		<span class="portletTopLeft"></span>
-        <span i18n:translate="mybookmarks_title">
-           Personal bookmarks
-        </span>
+        <span class="tile" tal:content="view/data/portletTitle" />
         <span class="portletTopRight"></span>
 	</dt>
 	<tal:default_bookmarks

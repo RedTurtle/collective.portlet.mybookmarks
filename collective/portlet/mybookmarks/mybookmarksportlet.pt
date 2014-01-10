@@ -26,7 +26,7 @@
 				 	
 	<dd class="portletItem"
 		tal:define="bookmark_title bookmark/Title;
-		            bookmark_description bookmark/Description">
+		            bookmark_description bookmark/Description|nothing">
 	  <form method="POST"
 	          action=""
 	         tal:condition="python:user.has_permission('collective.portlet.mybookmarks: Remove User Bookmark', here)"

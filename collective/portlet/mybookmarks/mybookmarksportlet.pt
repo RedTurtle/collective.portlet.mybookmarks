@@ -15,14 +15,18 @@
 			tal:repeat="bookmark default_bookmarks">
 			<img tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/lock.gif"
 				 alt="default link"
+				 i18n:attributes="alt; title"
 				 title="Default link"/>
-			<a tal:attributes="title bookmark/Title; href bookmark/url" tal:content="bookmark/Title" />
+			<a tal:attributes="title bookmark/Title;
+							   href bookmark/url" tal:content="bookmark/Title" />
 		</dd>
 	</tal:default_bookmarks>
 	<tal:bookmarks repeat="bookmark bookmarks"
-				 condition="bookmarks">
+				   condition="bookmarks">
 				 	
-	<dd class="portletItem">
+	<dd class="portletItem"
+		tal:define="bookmark_title bookmark/Title;
+		            bookmark_description bookmark/Description">
 	  <form method="POST"
 	          action=""
 	         tal:condition="python:user.has_permission('collective.portlet.mybookmarks: Remove User Bookmark', here)"
@@ -31,7 +35,7 @@
 				   tal:attributes="value bookmark/removeValue"/>
 			
 			<input type="hidden" name="bookmark_title" value=""
-                   tal:attributes="value bookmark/Title"/>
+                   tal:attributes="value bookmark_title"/>
 			
 			<input type="hidden" name="bookmark_type" value=""
 				   tal:attributes="value bookmark/bookmark_type"/>
@@ -40,19 +44,18 @@
 				   
 			<input class="removeBookmarkButton"
 	 	           type="image"
-		           alt=""
 		           name="Remove"
-				   i18n:attributes="name"
-				   tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png;
-				                   alt string:delete ${bookmark/Title}"
+		           alt="delete"
+				   i18n:attributes="alt;"
+				   tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/delete.png;"
 		    />
 	  </form>
-
-	  <a tal:attributes="title bookmark/Description|bookmark/Title; href bookmark/url" tal:content="bookmark/Title" />
+	  <a tal:attributes="title python:bookmark_description or bookmark_title;
+	  					 href bookmark/url" tal:content="bookmark/Title" />
 	</dd>
 	</tal:bookmarks>
 	<dd id="addExternalBlock" class="portletItem">
-		<span id="hiddenAbsoluteUrl" class="hiddenBookmarkInformation" tal:content="here/portal_url"/>
+		<span id="hiddenAltLabel" class="hiddenBookmarkInformation" i18n:translate="">add</span>
 		<span id="hiddenJsLabel" class="hiddenBookmarkInformation" i18n:translate="mybookmarks_js_label">External bookmark</span>
 		<form method="POST"
 			  class="bookmarkHiddenStructure"
@@ -99,7 +102,7 @@
 				         type="submit"
 		                 value="Add"
 		                 name="form.button.Add"
-						 i18n:attributes="value;"
+						 i18n:attributes="value"
 		                 />
 		        </div>
 			</fieldset>		

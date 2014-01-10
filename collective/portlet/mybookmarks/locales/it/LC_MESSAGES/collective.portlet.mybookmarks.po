@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.mybookmarks\n"
-"POT-Creation-Date: 2013-08-01 07:01+0000\n"
+"POT-Creation-Date: 2014-01-09 15:19+0000\n"
 "PO-Revision-Date: 2010-11-10 09:47+0000\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <info@redturtle.net>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Domain: collective.portlet.mybookmarks\n"
 
 #. Default: "Add"
-#: ./mybookmarksportlet.pt:98
+#: ./mybookmarksportlet.pt:101
 msgid "Add"
 msgstr "Aggiungi"
 
@@ -75,23 +75,22 @@ msgstr "Bookmark personali"
 msgid "Removal bookmark undone"
 msgstr "Rimozione del bookmark annullata"
 
-#. Default: "Remove"
-#: ./mybookmarksportlet.pt:41
-msgid "Remove"
-msgstr "Rimuovi"
-
 #: ./browser/manage_bookmarks.py:18
 msgid "Remove bookmark: you must select a bookmark to remove from the portlet"
 msgstr "Rimozione del bookmark: devi scegliere un bookmark da rimuovere dalla portlet"
 
 #. Default: "Required"
-#: ./mybookmarksportlet.pt:70
+#: ./mybookmarksportlet.pt:73
 msgid "Required"
 msgstr "Obbligatorio"
 
 #: ./mybookmarksportlet.py:17
 msgid "Title of the portlet"
 msgstr "Titolo della portlet"
+
+#: ./mybookmarksportlet.pt:101
+msgid "add"
+msgstr "aggiungi"
 
 #. Default: "Are you sure that you want delete this bookmark?"
 #: ./browser/confirm_delete_bookmark.pt:21
@@ -103,43 +102,47 @@ msgstr "Sei sicuro di voler rimuovere questo bookmark?"
 msgid "confirm_delete_title"
 msgstr "Conferma rimozione bookmark"
 
+#: ./mybookmarksportlet.pt:41
+msgid "delete"
+msgstr "rimuovi"
+
 #. Default: "Cancel"
 #: ./browser/confirm_delete_bookmark.pt:48
 msgid "label_cancel"
 msgstr "Annulla"
 
 #. Default: "(Required)"
-#: ./mybookmarksportlet.pt:70
+#: ./mybookmarksportlet.pt:73
 msgid "label_required"
 msgstr "(Obbligatorio)"
 
 #. Default: "New external bookmark"
-#: ./mybookmarksportlet.pt:63
+#: ./mybookmarksportlet.pt:66
 msgid "mybookmarks_add_external_title"
 msgstr "Nuovo bookmark esterno"
 
 #. Default: "Title"
-#: ./mybookmarksportlet.pt:69
+#: ./mybookmarksportlet.pt:72
 msgid "mybookmarks_external_title"
 msgstr "Titolo"
 
 #. Default: "Bookmark title."
-#: ./mybookmarksportlet.pt:73
+#: ./mybookmarksportlet.pt:76
 msgid "mybookmarks_external_title_help"
 msgstr "Titolo del bookmark"
 
 #. Default: "Url"
-#: ./mybookmarksportlet.pt:83
+#: ./mybookmarksportlet.pt:86
 msgid "mybookmarks_external_url"
 msgstr "Url"
 
 #. Default: "Bookmark url."
-#: ./mybookmarksportlet.pt:87
+#: ./mybookmarksportlet.pt:90
 msgid "mybookmarks_external_url_help"
 msgstr "Url del bookmark."
 
 #. Default: "External bookmark"
-#: ./mybookmarksportlet.pt:56
+#: ./mybookmarksportlet.pt:59
 msgid "mybookmarks_js_label"
 msgstr "Bookmark esterno"
 

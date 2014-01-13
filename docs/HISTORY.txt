@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - Fix accessibility stuffs [cekk]
+- Refactored js that hide the form [cekk]
 
 
 1.3.3 (2013-08-01)

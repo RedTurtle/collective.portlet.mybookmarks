@@ -58,7 +58,6 @@
 		<span id="hiddenAltLabel" class="hiddenBookmarkInformation" i18n:translate="">add</span>
 		<span id="hiddenJsLabel" class="hiddenBookmarkInformation" i18n:translate="mybookmarks_js_label">External bookmark</span>
 		<form method="POST"
-			  class="bookmarkHiddenStructure"
 			  id="externalBookmarkForm"
 	          action=""
 			  tal:attributes="action string:${here/absolute_url}/manage_bookmarks">

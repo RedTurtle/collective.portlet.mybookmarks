@@ -1,16 +1,9 @@
-function setFormClass(event){
-	event.preventDefault();
-	var form=jq('#addExternalBlock #externalBookmarkForm');
-	form.toggleClass('bookmarkHiddenStructure');
-}
-
-
-jq(document).ready(function() {
-	var dd=jq('#addExternalBlock');
+$(document).ready(function() {
+	var dd=$('#addExternalBlock');
 	if (dd.length === 1) {
 		var translated_label=dd.children('span#hiddenJsLabel').html();
 		var translated_alt=dd.children('span#hiddenAltLabel').html();
-		var href_title=jq('#externalBookmarkFieldset legend').html();
+		var href_title=$('#externalBookmarkFieldset legend').html();
 		var form=dd.children('#externalBookmarkForm');
 		html='<a id="addExternalLink"';
 		html+='title="'+href_title+'"';
@@ -19,7 +12,10 @@ jq(document).ready(function() {
 		html+=translated_label;
 		html+='</a>';
 		form.before(html);
-		jq('a#addExternalLink').bind('click', setFormClass);
+		$('a#addExternalLink').bind('click', function(event){
+			event.preventDefault();
+			form.toggle();
+		});
 	}
 });
 

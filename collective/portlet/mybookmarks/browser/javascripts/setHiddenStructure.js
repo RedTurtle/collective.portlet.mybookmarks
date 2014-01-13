@@ -6,4 +6,4 @@
  * will remove this class from portlet when images are ready.
  */
 
-document.write('<style type="text/css">.bookmarkHiddenStructure {background:none repeat scroll 0 0 transparent;border:medium none;display:block;height:1px;margin:-1px 0 0 -1px;overflow:hidden;padding:0;width:1px;}</style>');
+document.write('<style type="text/css">#externalBookmarkForm {display:none}</style>');

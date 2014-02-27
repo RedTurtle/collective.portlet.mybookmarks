@@ -1,8 +1,5 @@
 from Products.CMFCore.utils import getToolByName
-
-# Properties are defined here, because if they are defined in propertiestool.xml,
-# all properties are re-set the their initial state if you reinstall product
-# in the quickinstaller.
+from collective.portlet.mybookmarks import logger
 
 
 def import_various(context):
@@ -21,8 +18,8 @@ def insertProperties(context, portal):
     mybookmarks_properties = getattr(portal_properties, 'mybookmarks_properties', None)
     if not mybookmarks_properties:
         portal_properties.addPropertySheet(id='mybookmarks_properties', title="MyBookmarks properties")
-        portal.plone_log("Added mybookmarks_properties property-sheet")
+        logger.info("Added mybookmarks_properties property-sheet")
         mybookmarks_properties = getattr(portal_properties, 'mybookmarks_properties', None)
     if not mybookmarks_properties.hasProperty('default_bookmarks'):
         mybookmarks_properties.manage_addProperty(id='default_bookmarks', value='', type='lines')
-        portal.plone_log("Added default_bookmarks property")
+        logger.info("Added default_bookmarks property")

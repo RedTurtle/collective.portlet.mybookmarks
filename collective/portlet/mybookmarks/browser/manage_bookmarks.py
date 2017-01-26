@@ -2,7 +2,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.portlet.mybookmarks import MyBookmarksPortletMessageFactory as _
+from collective.portlet.mybookmarks import _
 
 
 class ConfirmDeleteView(BrowserView):

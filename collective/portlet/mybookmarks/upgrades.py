@@ -1,5 +1,7 @@
 from Products.CMFCore.utils import getToolByName
-from collective.portlet.mybookmarks import logger
+
+import logging
+logger = logging.getLogger(__name__)
 
 default_profile = 'profile-collective.portlet.mybookmarks:default'
 

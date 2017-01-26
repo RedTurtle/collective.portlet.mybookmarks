@@ -7,27 +7,14 @@
     i18n_domain="collective.portlet.mybookmarks">
 
   <five:registerPackage package="." initialize=".initialize" />
-	
+
 	<i18n:registerTranslations directory="locales" />
 
-	<include package="collective.autopermission" />
-  <permission
-        id="collective.portlet.mybookmarks.AddUserBookmark"
-        title="collective.portlet.mybookmarks: Add User Bookmark"
-        />
-
-  <permission
-        id="collective.portlet.mybookmarks.RemoveUserBookmark"
-        title="collective.portlet.mybookmarks: Remove User Bookmark"
-        />
-  
-  <permission
-      id="collective.portlet.mybookmarks.AddMyBookmarksPortlet"
-      title="collective.portlet.mybookmarks: Add mybookmarks portlet"
-     /> 
-
-	<include package=".browser" />
+  <include file="permissions.zcml" />
   <include file="upgrades.zcml" />
+	<include package=".browser" />
+  <include package=".controlpanel" />
+  <include package=".portlets" />
 
     <genericsetup:registerProfile
        name="default"
@@ -36,20 +23,14 @@
        description="A portlet that allow to store some internal and external bookmarks"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
-       
-    <include package="plone.app.portlets" /> 
+   <genericsetup:registerProfile
+      name="uninstall"
+      title="My bookmarks portlet: uninstall"
+      directory="profiles/uninstall"
+      description="A portlet that allow to store some internal and external bookmarks"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
-    <plone:portlet
-         name="collective.portlet.mybookmarks.MyBookmarksPortlet"
-         interface=".mybookmarksportlet.IMyBookmarksPortlet"
-         assignment=".mybookmarksportlet.Assignment"
-         edit_permission="collective.portlet.mybookmarks.AddMyBookmarksPortlet"
-         view_permission="zope2.View"
-         renderer=".mybookmarksportlet.Renderer"
-         addview=".mybookmarksportlet.AddForm"
-		     editview=".mybookmarksportlet.EditForm"
-         />
-	
   <genericsetup:importStep
     name="mybookmarks.importvarious"
     title="My bookmarks portlet"

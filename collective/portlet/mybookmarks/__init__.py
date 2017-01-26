@@ -1,7 +1,6 @@
+# -*- coding: utf-8 -*-
 from zope.i18nmessageid import MessageFactory
-MyBookmarksPortletMessageFactory = MessageFactory('collective.portlet.mybookmarks')
-import logging
-logger = logging.getLogger('collective.portlet.mybookmarks')
+_ = MessageFactory('collective.portlet.mybookmarks')
 
 
 def initialize(context):

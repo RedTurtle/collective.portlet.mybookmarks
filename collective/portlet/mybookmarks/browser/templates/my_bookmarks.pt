@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.portlet.mybookmarks">
+
+  <body>
+    <!-- <metal:block metal:fill-slot="javascript_head_slot">
+      <script type="text/javascript"
+              src="${portal_url}/++resource++collective.portlet.mybookmarks.javascripts/bookmarks_edit.js"></script>
+    </metal:block> -->
+    <metal:content-title fill-slot="content-title">
+      <metal:content-title define-macro="content-title">
+        <h1 class="documentFirstHeading" i18ntranslate="mybookmarks_title">
+          My bookmakrs
+        </h1>
+      </metal:content-title>
+    </metal:content-title>
+    <metal:content-description fill-slot="content-description">
+      <metal:content-description define-macro="content-description">
+
+      </metal:content-description>
+    </metal:content-description>
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core"
+        tal:define="bookmarks view/get_bookmarks">
+        <p class="no-bookmarks" tal:condition="not:bookmarks"
+           i18n:translate="no_bookmarks_label">
+          No bookmarks.
+        </p>
+        <div class="bookmarks-wrapper" tal:condition="bookmarks">
+          <div class="edit-bookmarks">
+            <a href="${context/absolute_url}/my-bookmarks-edit">Edit</a>
+          </div>
+          <ul class="bookmarks-list">
+            <tal:bookmark repeat="bookmark bookmarks">
+              <li data-index="${repeat/bookmark/index}"
+                  class="bookmark-detail">
+                <a href="${bookmark/url}">${bookmark/title}</a>
+              </li>
+            </tal:bookmark>
+          </ul>
+        </div>
+      </metal:content-core>
+    </metal:content-core>
+  </body>
+</html>

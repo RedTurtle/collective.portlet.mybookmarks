@@ -1,0 +1,11 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+<section class="portlet portletMyBookmarksPortlet" role="section" i18n:domain="plone">
+    <a href="${context/portal_url}/my-bookmarks" class="pat-plone-modal"
+      data-pat-plone-modal="content: #content-core">
+      ${view/data/title}
+    </a>
+</section>
+</html>

@@ -10,7 +10,7 @@
           <property name="title" i18n:translate="">Bookmark</property>
           <property name="description"
               i18n:translate="">Add the current object to your bookmarks list</property>
-          <property name="url_expr">string:${object_url}/manage_bookmarks</property>
+          <property name="url_expr">string:${object_url}/add-bookmark</property>
           <property name="icon_expr"></property>
           <property name="available_expr">python: member is not None</property>
           <property name="permissions">
@@ -19,5 +19,5 @@
           <property name="visible">True</property>
        </object>
   </object>
-   
+
 </object>

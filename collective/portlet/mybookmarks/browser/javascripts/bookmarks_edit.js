@@ -25,7 +25,7 @@ require([
                 })
                 .done(function(data) {
                   var url = $("body").data().baseUrl;
-                  $('#content-core').load(url + '/my-bookmarks-edit .bookmarks-wrapper', function () {
+                  $('#content-core').load(url + '/my-bookmarks-edit #content-core >', function () {
                     initializeSortable();
                   });
                 })
@@ -55,7 +55,7 @@ require([
           .done(function(data) {
             var result = JSON.parse(data);
             var url = $("body").data().baseUrl;
-            $('#content-core').load(url + '/my-bookmarks-edit .bookmarks-wrapper', function () {
+            $('#content-core').load(url + '/my-bookmarks-edit #content-core >', function () {
               initializeSortable();
             });
           })
@@ -69,7 +69,7 @@ require([
         var token = $('input[name="_authenticator"]').attr('value');
         if (absolute_url !== undefined) {
           $.ajax({
-            url: absolute_url + "/add-bookmark",
+            url: absolute_url + "/add-external-bookmark",
             data: values,
             method: "POST",
             beforeSend: function (xhr, options){
@@ -79,7 +79,7 @@ require([
           .done(function(data) {
             var result = JSON.parse(data);
             var url = $("body").data().baseUrl;
-            $('#content-core').load(url + '/my-bookmarks-edit .bookmarks-wrapper', function () {
+            $('#content-core').load(url + '/my-bookmarks-edit #content-core >', function () {
               initializeSortable();
             });
           })
@@ -96,10 +96,10 @@ require([
             url: absolute_url + "/edit-bookmark",
             data: {
               value: field.prop('value'),
-              fieldName: field.attr('name')
+              fieldName: field.attr('name'),
             },
             method: "POST",
-            beforeSend: function (xhr, options){
+            beforeSend: function (xhr, options) {
               xhr.setRequestHeader("X-CSRF-TOKEN", token);
             },
           })

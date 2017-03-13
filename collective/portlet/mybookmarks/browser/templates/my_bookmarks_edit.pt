@@ -16,6 +16,9 @@
     </metal:content-title>
     <metal:content-description fill-slot="content-description">
       <metal:content-description define-macro="content-description">
+        <p class="documentDescription">
+          You can edit/sort/delete saved bookmarks, or add new external ones.
+        </p>
       </metal:content-description>
     </metal:content-description>
     <metal:content-core fill-slot="content-core">
@@ -51,6 +54,7 @@
                       <input type="text"
                              name="${index}-url"
                              placeholder="Url"
+                             class="form-control"
                              value="${bookmark_url}" />
                     </tal:external>
                     <tal:internal condition="python:bookmark.get('type') == 'internal'">
@@ -74,7 +78,7 @@
         <hr />
         <div class="new-bookmark-wrapper">
           <h3 i18n:translate="add_external_bookmark_label">Add external bookmark</h3>
-          <form class="form-inline add-bookmark-form" action="${context/absolute_url}/add-bookmark">
+          <form class="form-inline add-bookmark-form" action="${context/absolute_url}/add-external-bookmark">
             <span tal:replace="structure context/@@authenticator/authenticator"/>
             <div class="new-bookmark-field row">
               <div class="form-group has-feedback col-md-5">
@@ -86,11 +90,12 @@
               <div class="form-group has-feedback col-md-5">
                 <input type="text"
                        name="url"
-                       placeholder="Url"/>
-                 <input type="hidden"
-                        name="type"
-                        value="external"/>
+                       placeholder="Url"
+                       class="form-control"/>
               </div>
+              <input type="hidden"
+                     name="type"
+                     value="external"/>
               <div class="col-md-2">
                 <button type="submit" class="btn add-bookmark">
                   <span tal:omit-tag=""

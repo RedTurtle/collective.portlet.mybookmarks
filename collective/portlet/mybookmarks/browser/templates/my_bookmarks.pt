@@ -31,9 +31,6 @@
           No bookmarks.
         </p>
         <div class="bookmarks-wrapper" tal:condition="bookmarks">
-          <div class="edit-bookmarks">
-            <a href="${context/absolute_url}/my-bookmarks-edit">Edit</a>
-          </div>
           <ul class="bookmarks-list">
             <tal:bookmark repeat="bookmark bookmarks">
               <li data-index="${repeat/bookmark/index}"

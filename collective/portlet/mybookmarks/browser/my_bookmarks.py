@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-import json
-import logging
-
 from collective.portlet.mybookmarks import _
+from collective.portlet.mybookmarks.controlpanel.interfaces import IMyBookmarksSettings
 from plone import api
 from plone.memoize import view
 from plone.protect import PostOnly
@@ -12,6 +10,8 @@ from Products.Five.browser import BrowserView
 from zExceptions import Forbidden
 from zope.i18n import translate
 from zope.interface import alsoProvides
+import json
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -112,8 +112,37 @@ class MyBookmarksView(BaseBookmarksView):
 
     def get_bookmarks(self):
         """
-        Return a list of saved bookmarks
+        Return a list of saved bookmarks and default bookmarks
         """
+        return self.parse_default_bookmarks() + self.parse_user_bookmarks()
+
+    def parse_default_bookmarks(self):
+        default_bookmarks = api.portal.get_registry_record(
+            'default_bookmarks',
+            interface=IMyBookmarksSettings)
+        results = []
+        for bookmark in default_bookmarks:
+            try:
+                title, path = bookmark.split('|')
+            except ValueError:
+                # malformed bookmark
+                pass
+            test_dict = {
+                'uid': path,
+                'title': title,
+                'type': 'default'
+            }
+            parsed_bookmark = self.parse_internal_bookmark(test_dict)
+            if parsed_bookmark:
+                results.append(parsed_bookmark)
+            else:
+                test_dict['url'] = path
+                parsed_bookmark = self.parse_external_bookmark(test_dict)
+                if parsed_bookmark:
+                    results.append(parsed_bookmark)
+        return results
+
+    def parse_user_bookmarks(self):
         bookmarks = self.extract_user_bookmarks()
         if not bookmarks:
             return []
@@ -161,6 +190,12 @@ class MyBookmarksView(BaseBookmarksView):
 class MyBookmarksEditView(MyBookmarksView):
 
     """ View for edit bookmarks """
+
+    def get_bookmarks(self):
+        """
+        Return a list of personal bookmarks and not default ones
+        """
+        return self.parse_user_bookmarks()
 
 
 class ReorderView(BaseBookmarksView):

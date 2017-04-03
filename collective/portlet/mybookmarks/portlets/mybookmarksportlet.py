@@ -22,8 +22,7 @@ class IMyBookmarksPortlet(IPortletDataProvider):
                 default=u"Title of the portlet"),
         description=_("mybookmarks_portlet_title_help",
                       default=u"Insert the title of the portlet."),
-        default=_("mybookmarks_portlet_title_default",
-                  default="Personal bookmark"),
+        default=u'Bookmarks',
         required=True)
 
 

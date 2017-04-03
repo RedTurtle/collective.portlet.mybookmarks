@@ -13,8 +13,8 @@
     </metal:block> -->
     <metal:content-title fill-slot="content-title">
       <metal:content-title define-macro="content-title">
-        <h1 class="documentFirstHeading" i18ntranslate="mybookmarks_title">
-          My bookmakrs
+        <h1 class="documentFirstHeading" i18n:translate="mybookmarks_title">
+          Personal bookmakrs
         </h1>
       </metal:content-title>
     </metal:content-title>
@@ -35,7 +35,8 @@
             <tal:bookmark repeat="bookmark bookmarks">
               <li data-index="${repeat/bookmark/index}"
                   class="bookmark-detail">
-                <a href="${bookmark/url}">${bookmark/title}</a>
+                <a tal:define="class python: bookmark.get('type') == 'default' and 'bookmark-link icon-lock' or 'bookmark-link'"
+                   class="${class}" href="${bookmark/url}">${bookmark/title}</a>
               </li>
             </tal:bookmark>
           </ul>

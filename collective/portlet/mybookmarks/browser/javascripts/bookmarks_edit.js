@@ -1,8 +1,7 @@
 require([
   'jquery',
   'mockup-patterns-sortable',
-  'mockup-patterns-modal',
-], function($, Sortable, Modal) {
+], function ($, Sortable) {
   'use strict';
    $(document).ready(function(){
       var absolute_url = $("body").data().portalUrl;

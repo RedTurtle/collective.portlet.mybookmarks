@@ -59,16 +59,6 @@
     layer="collective.portlet.mybookmarks.interfaces.IMyBookmarksLayer"
     />
 
-  <browser:page
-  	for="*"
-  	name="add_to_bookmarks"
-  	class=".manage_bookmarks.AddView"
-  	permission="zope2.View"
-    template="templates/add_bookmark.pt"
-  	/>
-
-
-
   <browser:resourceDirectory
       name="collective.portlet.mybookmarks.images"
       directory="images"

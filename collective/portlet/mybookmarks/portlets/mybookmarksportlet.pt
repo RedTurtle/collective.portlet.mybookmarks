@@ -2,10 +2,16 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-<section class="portlet portletMyBookmarksPortlet" role="section" i18n:domain="plone">
-    <a href="${context/portal_url}/my-bookmarks" class="pat-plone-modal"
-      data-pat-plone-modal="content: #content-core">
-      ${view/data/title}
-    </a>
+<section class="portlet portletMyBookmarks" role="section" i18n:domain="plone">
+    <header class="portletHeader">
+      <a class="tile pat-plone-modal" href="${context/portal_url}/my-bookmarks"
+         data-pat-plone-modal="{content: #content-core; width: 500px; backdropOptions: { opacity: '0.5'}}">
+        ${view/data/title}
+      </a>
+    </header>
+    <footer class="portletFooter">
+      <a class="tile edit-bookmarks" href="${context/absolute_url}/my-bookmarks-edit"><span class="icon-edit" aria-hidden="true">
+          </span> Edit</a>
+    </footer>
 </section>
 </html>

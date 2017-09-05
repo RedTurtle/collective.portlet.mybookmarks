@@ -4,8 +4,8 @@
       tal:omit-tag="">
 <section class="portlet portlet-my-bookmarks" role="section" i18n:domain="plone">
     <header class="portletHeader">
-      <a class="tile bookmarks-list-link" href="${context/portal_url}/my-bookmarks"
-         data-pat-plone-modal="{content: #content-core; width: 500px; backdropOptions: { opacity: '0.5'}}">
+      <a class="tile bookmarks-list-link pat-plone-modal" href="${context/portal_url}/my-bookmarks"
+         data-pat-plone-modal="{loadLinksWithinModal: false; content: #content-core; width: 500px; backdropOptions: { opacity: '0.5'}}">
         ${view/data/title}
       </a>
     </header>

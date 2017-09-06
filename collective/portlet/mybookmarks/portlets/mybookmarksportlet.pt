@@ -9,9 +9,9 @@
         ${view/data/title}
       </a>
     </header>
-    <footer class="portletFooter">
+    <!-- footer class="portletFooter">
       <a class="tile edit-bookmarks" href="${context/absolute_url}/my-bookmarks-edit"><span class="icon-edit" aria-hidden="true">
           </span> Edit</a>
-    </footer>
+    </footer -->
 </section>
 </html>

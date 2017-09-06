@@ -40,6 +40,11 @@
               </li>
             </tal:bookmark>
           </ul>
+
+        <div class="edit-bookmarks">
+          <a href="${context/portal_url}/my-bookmarks-edit">
+              Edit Bookmarks</a>
+        </div>
         </div>
       </metal:content-core>
     </metal:content-core>

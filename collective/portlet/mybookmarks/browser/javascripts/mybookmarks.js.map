@@ -1,1 +1,0 @@
-{"version":3,"sources":["mybookmarks.js"],"names":["require","$","Modal","document","ready","each","this","content","templateOptions","template"],"mappings":"AAAAA,SACE,SACA,yBACC,SAAUC,EAAGC,GACd,YACAD,GAAEE,UAAUC,MAAM,WAChBH,EAAE,+CAA+CI,KAAK,WACxC,GAAIH,GAAMD,EAAEK,OACtBC,QAAS,gBACTC,iBACIC,SAAU","file":"mybookmarks.min.js"}

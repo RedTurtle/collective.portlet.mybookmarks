@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.3.5 (unreleased)
+2.0.0 (unreleased)
 ------------------
 
 - Removed plone_logs and used a proper logger [cekk]
-
+- Plone 5 compatibility
+  [cekk]
 
 1.3.4 (2014-01-13)
 ------------------

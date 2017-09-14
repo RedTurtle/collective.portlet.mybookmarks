@@ -5,7 +5,7 @@
 <section class="portlet portlet-my-bookmarks" role="section" i18n:domain="plone">
     <header class="portletHeader">
       <a class="tile bookmarks-list-link pat-plone-modal" href="${context/portal_url}/my-bookmarks"
-         data-pat-plone-modal="{loadLinksWithinModal: false; content: #content-core; width: 500px; backdropOptions: { opacity: '0.5'}}">
+         data-pat-plone-modal="{loadLinksWithinModal: false; content: #content-core; width: 500px; backdropOptions: { opacity: '0.5', closeOnEsc: true, closeOnClick: true, classActiveName:'plone-modal-backdrop'}}">
         ${view/data/title}
       </a>
     </header>

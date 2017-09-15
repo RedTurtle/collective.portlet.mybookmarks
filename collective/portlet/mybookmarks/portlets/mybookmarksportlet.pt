@@ -4,14 +4,13 @@
       tal:omit-tag="">
 <section class="portlet portlet-my-bookmarks" role="section" i18n:domain="plone">
     <header class="portletHeader">
-      <a class="tile bookmarks-list-link pat-plone-modal" href="${context/portal_url}/my-bookmarks"
-         data-pat-plone-modal="{loadLinksWithinModal: false; content: #content-core; width: 500px; backdropOptions: { opacity: '0.5', closeOnEsc: true, closeOnClick: true, classActiveName:'plone-modal-backdrop'}}">
+      <a class="pat-plone-modal" href="${context/portal_url}/my-bookmarks"
+         data-pat-plone-modal="loadLinksWithinModal: false; content: #content-core; width: 500px}">
         ${view/data/title}
       </a>
+      <!-- <a class="tile bookmarks-list-link" href="${context/portal_url}/my-bookmarks">
+        ${view/data/title}
+      </a> -->
     </header>
-    <!-- footer class="portletFooter">
-      <a class="tile edit-bookmarks" href="${context/absolute_url}/my-bookmarks-edit"><span class="icon-edit" aria-hidden="true">
-          </span> Edit</a>
-    </footer -->
 </section>
 </html>

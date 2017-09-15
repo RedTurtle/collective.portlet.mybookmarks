@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.mybookmarks\n"
-"POT-Creation-Date: 2017-04-03 14:53+0000\n"
+"POT-Creation-Date: 2017-09-15 15:40+0000\n"
 "PO-Revision-Date: 2010-11-10 09:47+0000\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <info@redturtle.net>\n"
@@ -28,11 +28,11 @@ msgstr "Bookmark"
 msgid "Bookmarks configuration"
 msgstr "Configurazione bookmarks"
 
-#: ./browser/my_bookmarks.py:252
+#: ./browser/my_bookmarks.py:253
 msgid "Error on saving"
 msgstr "Errore nel salvataggio"
 
-#: ./browser/my_bookmarks.py:258
+#: ./browser/my_bookmarks.py:259
 msgid "Unable to edit bookmark. index is not a valid number."
 msgstr "Impossibile modificare il bookmark. L'indice passato non è un numero valido."
 
@@ -46,6 +46,21 @@ msgstr "Aggiungi bookmark esterno"
 msgid "add_label"
 msgstr "Aggiungi"
 
+#. Default: "This content is already bookmarked!"
+#: ./browser/my_bookmarks.py:335
+msgid "already_bookmarked_label"
+msgstr "Questo contenuto è già stato aggiunto ai bookmarks!"
+
+#. Default: "Bookmark added!"
+#: ./browser/my_bookmarks.py:351
+msgid "bookmark_addedd_label"
+msgstr "Bookmark aggiunto!"
+
+#. Default: "Unable to add this bookmark."
+#: ./browser/my_bookmarks.py:355
+msgid "bookmark_unable_add_label"
+msgstr "Impossibile aggiungere questo bookmkark."
+
 #. Default: "Insert a list of default bookmarks visible to all users in the following format: \"title|path_to_resource_or_url\". One per line."
 #: ./controlpanel/interfaces.py:16
 msgid "default_bookmarks_help"
@@ -55,6 +70,11 @@ msgstr "Inserisci una lista di bookmark di default, che saranno visibili a tutti
 #: ./controlpanel/interfaces.py:13
 msgid "default_bookmarks_label"
 msgstr "Bookmark di default"
+
+#. Default: "Edit Bookmarks"
+#: ./browser/templates/my_bookmarks.pt:45
+msgid "edit_bookmarks_label"
+msgstr "Modifica i bookmarks"
 
 #. Default: "My Bookmarks settings"
 #: ./controlpanel/view.py:11
@@ -83,9 +103,13 @@ msgstr "Inserisci il titolo della portlet."
 
 #. Default: "Personal bookmakrs"
 #: ./browser/templates/my_bookmarks.pt:16
-#: ./browser/templates/my_bookmarks_edit.pt:16
 msgid "mybookmarks_title"
 msgstr "Bookmark personali"
+
+#. Default: "Edit personal bookmarks"
+#: ./browser/templates/my_bookmarks_edit.pt:16
+msgid "mybookmarks_title_edit"
+msgstr "Modifica i bookmark personali"
 
 #. Default: "No bookmarks."
 #: ./browser/templates/my_bookmarks.pt:29
@@ -93,6 +117,6 @@ msgid "no_bookmarks_label"
 msgstr "Nessun bookmark presente."
 
 #. Default: "Unable to sort bookmarks. Invalid values."
-#: ./browser/my_bookmarks.py:216
+#: ./browser/my_bookmarks.py:217
 msgid "unable_sort_msg"
 msgstr "Impossibile riordinare i bookmark. Valori non validi."

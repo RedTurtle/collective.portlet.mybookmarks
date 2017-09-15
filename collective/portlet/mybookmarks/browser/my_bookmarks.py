@@ -12,6 +12,7 @@ from zope.i18n import translate
 from zope.interface import alsoProvides
 import json
 import logging
+from zope.i18n import translate
 
 logger = logging.getLogger(__name__)
 
@@ -287,7 +288,9 @@ class RemoveBookmarkView(BaseBookmarksView):
         try:
             index = int(index_str)
         except ValueError:
-            msg = "Unable to edit bookmark. index is not a valid number."
+            msg = translate(
+                _("Unable to edit bookmark. index is not a valid number."),
+                context=self.request)
             logger.error(msg)
             res_dict['success'] = False
             res_dict['message'] = msg
@@ -328,8 +331,13 @@ class AddBookmarkView(BaseBookmarksView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
         if self.already_bookmarked():
+            message = translate(
+                _(
+                    'already_bookmarked_label',
+                    default=u'This content is already bookmarked!'),
+                context=self.request)
             api.portal.show_message(
-                message='This content is already bookmarked!',
+                message=message,
                 type="warning",
                 request=self.request)
             return self.request.response.redirect(self.context.absolute_url())
@@ -339,9 +347,13 @@ class AddBookmarkView(BaseBookmarksView):
         message = ""
         msg_type = "info"
         if result:
-            message = "Bookmark added!"
+            message = translate(
+                _('bookmark_addedd_label', default=u'Bookmark added!'),
+                context=self.request)
         else:
-            message = "Unable to add this bookmark."
+            message = translate(
+                _('bookmark_unable_add_label', default=u'Unable to add this bookmark.'),
+                context=self.request)
             message = "error"
         api.portal.show_message(
             message=message,

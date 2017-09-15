@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-03 14:53+0000\n"
+"POT-Creation-Date: 2017-09-15 15:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,11 +29,11 @@ msgstr ""
 msgid "Bookmarks configuration"
 msgstr ""
 
-#: ./browser/my_bookmarks.py:252
+#: ./browser/my_bookmarks.py:253
 msgid "Error on saving"
 msgstr ""
 
-#: ./browser/my_bookmarks.py:258
+#: ./browser/my_bookmarks.py:259
 msgid "Unable to edit bookmark. index is not a valid number."
 msgstr ""
 
@@ -47,6 +47,21 @@ msgstr ""
 msgid "add_label"
 msgstr ""
 
+#. Default: "This content is already bookmarked!"
+#: ./browser/my_bookmarks.py:335
+msgid "already_bookmarked_label"
+msgstr ""
+
+#. Default: "Bookmark added!"
+#: ./browser/my_bookmarks.py:351
+msgid "bookmark_addedd_label"
+msgstr ""
+
+#. Default: "Unable to add this bookmark."
+#: ./browser/my_bookmarks.py:355
+msgid "bookmark_unable_add_label"
+msgstr ""
+
 #. Default: "Insert a list of default bookmarks visible to all users in the following format: \"title|path_to_resource_or_url\". One per line."
 #: ./controlpanel/interfaces.py:16
 msgid "default_bookmarks_help"
@@ -55,6 +70,11 @@ msgstr ""
 #. Default: "Default bookmarks"
 #: ./controlpanel/interfaces.py:13
 msgid "default_bookmarks_label"
+msgstr ""
+
+#. Default: "Edit Bookmarks"
+#: ./browser/templates/my_bookmarks.pt:45
+msgid "edit_bookmarks_label"
 msgstr ""
 
 #. Default: "My Bookmarks settings"
@@ -84,8 +104,12 @@ msgstr ""
 
 #. Default: "Personal bookmakrs"
 #: ./browser/templates/my_bookmarks.pt:16
-#: ./browser/templates/my_bookmarks_edit.pt:16
 msgid "mybookmarks_title"
+msgstr ""
+
+#. Default: "Edit personal bookmarks"
+#: ./browser/templates/my_bookmarks_edit.pt:16
+msgid "mybookmarks_title_edit"
 msgstr ""
 
 #. Default: "No bookmarks."
@@ -94,7 +118,7 @@ msgid "no_bookmarks_label"
 msgstr ""
 
 #. Default: "Unable to sort bookmarks. Invalid values."
-#: ./browser/my_bookmarks.py:216
+#: ./browser/my_bookmarks.py:217
 msgid "unable_sort_msg"
 msgstr ""
 

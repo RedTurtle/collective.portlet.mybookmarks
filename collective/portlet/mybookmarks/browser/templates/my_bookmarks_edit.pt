@@ -13,7 +13,7 @@
   <body>
     <div id="content-core" metal:fill-slot="main"
           tal:define="bookmarks view/get_bookmarks">
-      <h1 class="documentFirstHeading" i18n:translate="mybookmarks_title">
+      <h1 class="documentFirstHeading" i18n:translate="mybookmarks_title_edit">
         Edit personal bookmarks
       </h1>
       <p class="documentDescription" i18n:translate="mybookmarks_description">

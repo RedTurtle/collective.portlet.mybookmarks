@@ -34,9 +34,7 @@
                                index repeat/bookmark/index">
                 <input type="hidden" name="${index}-type" value="${bookmark_type}" />
                 <div class="col-md-1 sort-column">
-                  <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
-                  </button>
+                  <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
                 </div>
                 <div class="form-group has-feedback col-md-5">
                   <input type="text"

@@ -312,9 +312,13 @@ class AddExternalBookmarkView(BaseBookmarksView):
             res_dict['success'] = False
             res_dict['message'] = e.message
             return json.dumps(res_dict)
+        url = self.request.form.get('url')
+
+        if not url.startswith('http://') and not url.startswith('https://'):
+            url = 'http://{}'.format(url)
         data = {
             'title': self.request.form.get('title'),
-            'url': self.request.form.get('url'),
+            'url': url,
             'type': self.request.form.get('type')
         }
 

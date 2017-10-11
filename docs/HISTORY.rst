@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.0 (unreleased)
+2.0.0 (11/10/2017)
 ------------------
 
 - Removed plone_logs and used a proper logger [cekk]

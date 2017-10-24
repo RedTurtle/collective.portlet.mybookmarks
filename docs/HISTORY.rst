@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.0.1 (unreleased)
+------------------
+
+- remove userschema.xml. Now additional field is added in the install script.
+  In this way, we don't override existing ones.
+  [cekk]
+
 2.0.0 (11/10/2017)
 ------------------
 

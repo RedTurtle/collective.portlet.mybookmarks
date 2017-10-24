@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.1 (2017-10-24)
 ------------------
 
 - remove userschema.xml. Now additional field is added in the install script.

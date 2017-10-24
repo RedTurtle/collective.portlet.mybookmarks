@@ -2,5 +2,6 @@ recursive-include docs *
 recursive-include collective *
 global-exclude *pyc
 include *.txt
-include *.js
-include *.json
+exclude *.js
+exclude *.json
+exclude .nvmrc

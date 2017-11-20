@@ -26,7 +26,7 @@ msgstr "Bookmark"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Bookmarks configuration"
-msgstr "Configurazione bookmarks"
+msgstr "Configurazione bookmark"
 
 #: ./browser/my_bookmarks.py:253
 msgid "Error on saving"
@@ -49,7 +49,7 @@ msgstr "Aggiungi"
 #. Default: "This content is already bookmarked!"
 #: ./browser/my_bookmarks.py:335
 msgid "already_bookmarked_label"
-msgstr "Questo contenuto è già stato aggiunto ai bookmarks!"
+msgstr "Questo contenuto è già stato aggiunto ai bookmark!"
 
 #. Default: "Bookmark added!"
 #: ./browser/my_bookmarks.py:351
@@ -74,7 +74,7 @@ msgstr "Bookmark di default"
 #. Default: "Edit Bookmarks"
 #: ./browser/templates/my_bookmarks.pt:45
 msgid "edit_bookmarks_label"
-msgstr "Modifica i bookmarks"
+msgstr "Modifica i bookmark"
 
 #. Default: "My Bookmarks settings"
 #: ./controlpanel/view.py:11

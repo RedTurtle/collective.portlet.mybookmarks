@@ -31,7 +31,8 @@ Default bookmarks can't be removed by users.
 Dependencies
 ============
 
-This product has been tested on Plone 3.3.5 and Plone 4.2
+This product has been tested on Plone 5.0.x and 5.1.
+For Plone < 5, use 1.x versions and "plone4" branch on github.
 
 Credits
 =======

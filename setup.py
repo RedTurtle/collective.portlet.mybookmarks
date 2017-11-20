@@ -1,19 +1,17 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3.5.dev0'
+version = '2.0.2.dev0'
 
 setup(name='collective.portlet.mybookmarks',
       version=version,
       description="A portlet that allows to store some internal and external bookmarks for users",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
-        "Framework :: Plone :: 3.3",
-        "Framework :: Plone :: 4.0",
-        "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 5.0",
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
@@ -21,7 +19,7 @@ setup(name='collective.portlet.mybookmarks',
       keywords='bookmark portlet user',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.it',
-      url='http://plone.org/products/collective.portlet.mybookmarks',
+      url='https://github.com/RedTurtle/collective.portlet.mybookmarks',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.portlet'],
@@ -29,7 +27,6 @@ setup(name='collective.portlet.mybookmarks',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'collective.autopermission',
       ],
       entry_points="""
       # -*- entry_points -*-

@@ -1,11 +1,26 @@
 Changelog
 =========
 
-1.3.5 (unreleased)
+2.0.2 (unreleased)
+------------------
+
+- Fix Italian translations.
+  [cekk]
+
+
+2.0.1 (2017-10-24)
+------------------
+
+- remove userschema.xml. Now additional field is added in the install script.
+  In this way, we don't override existing ones.
+  [cekk]
+
+2.0.0 (11/10/2017)
 ------------------
 
 - Removed plone_logs and used a proper logger [cekk]
-
+- Plone 5 compatibility
+  [cekk]
 
 1.3.4 (2014-01-13)
 ------------------

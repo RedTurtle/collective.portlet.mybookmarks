@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.mybookmarks\n"
-"POT-Creation-Date: 2014-01-09 15:19+0000\n"
+"POT-Creation-Date: 2017-09-15 15:40+0000\n"
 "PO-Revision-Date: 2010-11-10 09:47+0000\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <info@redturtle.net>\n"
@@ -14,11 +14,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.mybookmarks\n"
 
-#. Default: "Add"
-#: ./mybookmarksportlet.pt:101
-msgid "Add"
-msgstr "Aggiungi"
-
 #. Default: "Add the current object to your bookmarks list"
 #: ./profiles/default/actions.xml
 msgid "Add the current object to your bookmarks list"
@@ -29,120 +24,99 @@ msgstr "Aggiungi l'oggetto corrente alla lista dei bookmark"
 msgid "Bookmark"
 msgstr "Bookmark"
 
-#. Default: "Bookmark added."
-#: ./browser/manage_bookmarks.py:70
-msgid "Bookmark added."
-msgstr "Bookmark aggiunto."
+#: ./profiles/default/controlpanel.xml
+msgid "Bookmarks configuration"
+msgstr "Configurazione bookmark"
 
-#. Default: "Bookmark already present."
-#: ./browser/manage_bookmarks.py:73
-msgid "Bookmark already present."
-msgstr "Bookmark già presente."
+#: ./browser/my_bookmarks.py:253
+msgid "Error on saving"
+msgstr "Errore nel salvataggio"
 
-#. Default: "Bookmark not present in list."
-#: ./browser/manage_bookmarks.py:59
-msgid "Bookmark not present in list."
-msgstr "Bookmark non presente in elenco."
+#: ./browser/my_bookmarks.py:259
+msgid "Unable to edit bookmark. index is not a valid number."
+msgstr "Impossibile modificare il bookmark. L'indice passato non è un numero valido."
 
-#. Default: "Bookmark removed."
-#: ./browser/manage_bookmarks.py:58
-msgid "Bookmark removed."
-msgstr "Bookmark rimosso."
+#. Default: "Add external bookmark"
+#: ./browser/templates/my_bookmarks_edit.pt:76
+msgid "add_external_bookmark_label"
+msgstr "Aggiungi bookmark esterno"
 
-#. Default: "Delete"
-#: ./browser/confirm_delete_bookmark.pt:42
-msgid "Delete"
-msgstr "Rimuovi"
+#. Default: "Add"
+#: ./browser/templates/my_bookmarks_edit.pt:97
+msgid "add_label"
+msgstr "Aggiungi"
 
-#: ./browser/manage_bookmarks.py:38
-msgid "Error in removal process"
-msgstr "Errore durante la rimozione"
+#. Default: "This content is already bookmarked!"
+#: ./browser/my_bookmarks.py:335
+msgid "already_bookmarked_label"
+msgstr "Questo contenuto è già stato aggiunto ai bookmark!"
 
-#. Default: "External bookmarks: all the required fields must be filled."
-#: ./browser/manage_bookmarks.py:43
-msgid "External bookmarks: all the required fields must be filled."
-msgstr "Bookmark esterni: devi riempire tutti i campi obbligatori."
+#. Default: "Bookmark added!"
+#: ./browser/my_bookmarks.py:351
+msgid "bookmark_addedd_label"
+msgstr "Bookmark aggiunto!"
 
-#: ./mybookmarksportlet.py:18
-msgid "Insert the title of the portlet."
-msgstr "Inserisci il titolo della portlet."
+#. Default: "Unable to add this bookmark."
+#: ./browser/my_bookmarks.py:355
+msgid "bookmark_unable_add_label"
+msgstr "Impossibile aggiungere questo bookmkark."
 
-#: ./mybookmarksportlet.py:19
-msgid "Personal bookmark"
-msgstr "Bookmark personali"
+#. Default: "Insert a list of default bookmarks visible to all users in the following format: \"title|path_to_resource_or_url\". One per line."
+#: ./controlpanel/interfaces.py:16
+msgid "default_bookmarks_help"
+msgstr "Inserisci una lista di bookmark di default, che saranno visibili a tutti gli utenti. Utilizza il seguente formato: \"title|path_to_resource_or_url\". Uno per riga."
 
-#: ./browser/manage_bookmarks.py:34
-msgid "Removal bookmark undone"
-msgstr "Rimozione del bookmark annullata"
+#. Default: "Default bookmarks"
+#: ./controlpanel/interfaces.py:13
+msgid "default_bookmarks_label"
+msgstr "Bookmark di default"
 
-#: ./browser/manage_bookmarks.py:18
-msgid "Remove bookmark: you must select a bookmark to remove from the portlet"
-msgstr "Rimozione del bookmark: devi scegliere un bookmark da rimuovere dalla portlet"
+#. Default: "Edit Bookmarks"
+#: ./browser/templates/my_bookmarks.pt:45
+msgid "edit_bookmarks_label"
+msgstr "Modifica i bookmark"
 
-#. Default: "Required"
-#: ./mybookmarksportlet.pt:73
-msgid "Required"
-msgstr "Obbligatorio"
+#. Default: "My Bookmarks settings"
+#: ./controlpanel/view.py:11
+msgid "mybookmarks_controlpanel_title"
+msgstr "Gestione bookmark personali"
 
-#: ./mybookmarksportlet.py:17
-msgid "Title of the portlet"
+#. Default: "You can edit/sort/delete saved bookmarks, or add new external ones."
+#: ./browser/templates/my_bookmarks_edit.pt:19
+msgid "mybookmarks_description"
+msgstr "Puoi modificare/ordinare/cancellare i bookmark salvati, o aggiungere dei nuovi bookmark esterni."
+
+#. Default: "Title of the portlet"
+#: ./portlets/mybookmarksportlet.py:21
+msgid "mybookmarks_portlet_title"
 msgstr "Titolo della portlet"
 
-#: ./mybookmarksportlet.pt:101
-msgid "add"
-msgstr "aggiungi"
+#. Default: "Personal bookmark"
+#: ./portlets/mybookmarksportlet.py:46
+msgid "mybookmarks_portlet_title_default"
+msgstr "Bookmark personali"
 
-#. Default: "Are you sure that you want delete this bookmark?"
-#: ./browser/confirm_delete_bookmark.pt:21
-msgid "confirm_delete_text"
-msgstr "Sei sicuro di voler rimuovere questo bookmark?"
+#. Default: "Insert the title of the portlet."
+#: ./portlets/mybookmarksportlet.py:23
+msgid "mybookmarks_portlet_title_help"
+msgstr "Inserisci il titolo della portlet."
 
-#. Default: "Remove bookmark confirmation"
-#: ./browser/confirm_delete_bookmark.pt:18
-msgid "confirm_delete_title"
-msgstr "Conferma rimozione bookmark"
+#. Default: "Personal bookmakrs"
+#: ./browser/templates/my_bookmarks.pt:16
+msgid "mybookmarks_title"
+msgstr "Bookmark personali"
 
-#: ./mybookmarksportlet.pt:41
-msgid "delete"
-msgstr "rimuovi"
+#. Default: "Edit personal bookmarks"
+#: ./browser/templates/my_bookmarks_edit.pt:16
+msgid "mybookmarks_title_edit"
+msgstr "Modifica i bookmark personali"
 
-#. Default: "Cancel"
-#: ./browser/confirm_delete_bookmark.pt:48
-msgid "label_cancel"
-msgstr "Annulla"
+#. Default: "No bookmarks."
+#: ./browser/templates/my_bookmarks.pt:29
+msgid "no_bookmarks_label"
+msgstr "Nessun bookmark presente."
 
-#. Default: "(Required)"
-#: ./mybookmarksportlet.pt:73
-msgid "label_required"
-msgstr "(Obbligatorio)"
-
-#. Default: "New external bookmark"
-#: ./mybookmarksportlet.pt:66
-msgid "mybookmarks_add_external_title"
-msgstr "Nuovo bookmark esterno"
-
-#. Default: "Title"
-#: ./mybookmarksportlet.pt:72
-msgid "mybookmarks_external_title"
-msgstr "Titolo"
-
-#. Default: "Bookmark title."
-#: ./mybookmarksportlet.pt:76
-msgid "mybookmarks_external_title_help"
-msgstr "Titolo del bookmark"
-
-#. Default: "Url"
-#: ./mybookmarksportlet.pt:86
-msgid "mybookmarks_external_url"
-msgstr "Url"
-
-#. Default: "Bookmark url."
-#: ./mybookmarksportlet.pt:90
-msgid "mybookmarks_external_url_help"
-msgstr "Url del bookmark."
-
-#. Default: "External bookmark"
-#: ./mybookmarksportlet.pt:59
-msgid "mybookmarks_js_label"
-msgstr "Bookmark esterno"
-
+#. Default: "Unable to sort bookmarks. Invalid values."
+#: ./browser/my_bookmarks.py:217
+msgid "unable_sort_msg"
+msgstr "Impossibile riordinare i bookmark. Valori non validi."

@@ -5,12 +5,7 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.portlet.mybookmarks">
-
   <body>
-    <!-- <metal:block metal:fill-slot="javascript_head_slot">
-      <script type="text/javascript"
-              src="${portal_url}/++resource++collective.portlet.mybookmarks.javascripts/bookmarks_edit.js"></script>
-    </metal:block> -->
     <metal:content-title fill-slot="content-title">
       <metal:content-title define-macro="content-title">
         <h1 class="documentFirstHeading" i18n:translate="mybookmarks_title">

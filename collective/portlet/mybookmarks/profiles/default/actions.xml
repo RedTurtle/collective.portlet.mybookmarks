@@ -12,7 +12,7 @@
               i18n:translate="">Add the current object to your bookmarks list</property>
           <property name="url_expr">string:${object_url}/add-bookmark</property>
           <property name="icon_expr"></property>
-          <property name="available_expr">python: member is not None</property>
+          <property name="available_expr">python: member is not None and context.portal_type != 'Plone Site'</property>
           <property name="permissions">
               <element value="collective.portlet.mybookmarks: Add User Bookmark"/>
           </property>

@@ -3,20 +3,11 @@
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.portlet.mybookmarks">
 
-  <!-- Upgrade steps -->
   <gs:upgradeStep
         title="Upgrade collective.portlet.mybookmarks"
         description="collective.portlet.mybookmarks upgrade step"
-        source="0"
-        destination="1"
-        handler=".upgrades.to_1"
-        profile="collective.portlet.mybookmarks:default" />
-  
-  <gs:upgradeStep
-        title="Upgrade collective.portlet.mybookmarks"
-        description="collective.portlet.mybookmarks upgrade step"
-        source="1"
-        destination="2"
-        handler=".upgrades.to_2"
+        source="3000"
+        destination="3100"
+        handler=".upgrades.to_3100"
         profile="collective.portlet.mybookmarks:default" />
 </configure>

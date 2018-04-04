@@ -4,8 +4,10 @@ Changelog
 2.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Don't show bookmark action on site root
+  [cekk]
+- Use standard slots in edit template
+  [cekk]
 
 2.0.2 (2017-11-20)
 ------------------

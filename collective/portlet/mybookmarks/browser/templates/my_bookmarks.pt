@@ -35,11 +35,10 @@
               </li>
             </tal:bookmark>
           </ul>
-
+        </div>
         <div class="edit-bookmarks">
           <a href="${context/portal_url}/my-bookmarks-edit" i18n:translate="edit_bookmarks_label">
-              Edit Bookmarks</a>
-        </div>
+            Edit Bookmarks</a>
         </div>
       </metal:content-core>
     </metal:content-core>

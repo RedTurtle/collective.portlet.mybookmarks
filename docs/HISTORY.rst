@@ -4,8 +4,9 @@ Changelog
 2.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Always show edit bookmarks link in bookmarks list, also if the user doesn't
+  have any bookmark.
+  [cekk]
 
 2.0.3 (2018-04-04)
 ------------------

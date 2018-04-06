@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.4 (unreleased)
+2.0.4 (2018-04-06)
 ------------------
 
 - Always show edit bookmarks link in bookmarks list, also if the user doesn't

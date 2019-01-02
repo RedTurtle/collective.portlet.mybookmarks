@@ -10,7 +10,7 @@
 	</dt>
 	<tal:default_bookmarks
 		define="default_bookmarks view/default_bookmarks"
-		condition="default_bookmarks">
+		condition="default_bookmarks|nothing">
 		<dd class="portletItem"
 			tal:repeat="bookmark default_bookmarks">
 			<img tal:attributes="src string:${here/portal_url}/++resource++collective.portlet.mybookmarks.images/lock.gif"

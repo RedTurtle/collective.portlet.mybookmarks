@@ -41,13 +41,13 @@
 
     <plone:portlet
          name="collective.portlet.mybookmarks.MyBookmarksPortlet"
-         interface=".mybookmarksportlet.IMyBookmarksPortlet"
-         assignment=".mybookmarksportlet.Assignment"
+         interface=".portlets.mybookmarksportlet.IMyBookmarksPortlet"
+         assignment=".portlets.mybookmarksportlet.Assignment"
          edit_permission="collective.portlet.mybookmarks.AddMyBookmarksPortlet"
          view_permission="zope2.View"
-         renderer=".mybookmarksportlet.Renderer"
-         addview=".mybookmarksportlet.AddForm"
-		     editview=".mybookmarksportlet.EditForm"
+         renderer=".portlets.mybookmarksportlet.Renderer"
+         addview=".portlets.mybookmarksportlet.AddForm"
+		     editview=".portlets.mybookmarksportlet.EditForm"
          />
 	
   <genericsetup:importStep

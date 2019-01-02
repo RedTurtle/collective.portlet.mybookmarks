@@ -8,7 +8,7 @@ $(document).ready(function() {
 		html='<a id="addExternalLink"';
 		html+='title="'+href_title+'"';
 		html+='href="#">';
-		html+='<img class="bookmarkIcon" src="'+portal_url+'/++resource++collective.portlet.mybookmarks.images/add.png" alt="' + translated_alt + '"/>';
+		html+='<img class="bookmarkIcon" src="'+$('body').attr('data-portal-url')+'/++resource++collective.portlet.mybookmarks.images/add.png" alt="' + translated_alt + '"/>';
 		html+=translated_label;
 		html+='</a>';
 		form.before(html);

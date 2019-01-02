@@ -17,7 +17,9 @@ def insertProperties(context, portal):
     """
     insert some properties
     """
-    portal_properties = getToolByName(context, 'portal_properties')
+    portal_properties = getToolByName(context, 'portal_properties', None)
+    if not portal_properties:
+        return
     mybookmarks_properties = getattr(portal_properties, 'mybookmarks_properties', None)
     if not mybookmarks_properties:
         portal_properties.addPropertySheet(id='mybookmarks_properties', title="MyBookmarks properties")

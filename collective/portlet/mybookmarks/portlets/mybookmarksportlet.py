@@ -8,6 +8,7 @@ from zope import schema
 from zope.formlib import form
 from zope.interface import implements
 from collective.portlet.mybookmarks import logger
+from plone import api
 
 
 class IMyBookmarksPortlet(IPortletDataProvider):
@@ -69,13 +70,15 @@ class Renderer(base.Renderer):
         external_bookmarks = [x for x in user.getProperty('external_bookmarks', ())]
         bookmarks_list = []
         if bookmarks:
+            tns = api.portal.get_registry_record('plone.types_not_searched')
             portal_types = getToolByName(self.context, 'portal_types')
-            portal_properties = getToolByName(self.context, 'portal_properties')
-            site_properties = getattr(portal_properties, 'site_properties')
-            if site_properties.hasProperty('types_not_searched'):
+            # portal_properties = getToolByName(self.context, 'portal_properties')
+            # site_properties = getattr(portal_properties, 'site_properties')
+            # if site_properties.hasProperty('types_not_searched'):
+            if tns:
                 search_types = [x for x
                               in portal_types.keys()
-                              if x not in site_properties.getProperty('types_not_searched')]
+                              if x not in tns]
         for bookmark in bookmarks:
             res = pc.searchResults(UID=bookmark, portal_type=search_types)
             if res:
@@ -172,7 +175,7 @@ class AddForm(base.AddForm):
     """
     Portlet add form.
     """
-    form_fields = form.Fields(IMyBookmarksPortlet)
+    schema = IMyBookmarksPortlet
 
     def create(self, data):
         return Assignment(**data)
@@ -182,4 +185,4 @@ class EditForm(base.EditForm):
     """
     Portlet edit form.
     """
-    form_fields = form.Fields(IMyBookmarksPortlet)
+    schema = IMyBookmarksPortlet

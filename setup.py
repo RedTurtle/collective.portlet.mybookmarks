@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3.4arpaer'
+version = '1.3.5arpaer'
 
 setup(name='collective.portlet.mybookmarks',
       version=version,

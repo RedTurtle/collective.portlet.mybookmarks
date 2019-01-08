@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.3.4arpaer (2019-01-08)
+------------------------
+- fix actions label and condition
+  [lucabel] 
+
 1.3.4arpaer (2019-01-04)
 ------------------
 - 1.3.4 able to run on P5

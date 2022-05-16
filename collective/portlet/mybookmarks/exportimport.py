@@ -46,5 +46,5 @@ def updateMemberSchema():
         './/{http://namespaces.plone.org/supermodel/schema}schema')[0]
     for new_field in new_fields:
         old_schema.append(new_field)
-    ttw.applySchema(etree.tostring(old_xml))
+    ttw.applySchema(etree.tostring(old_xml).decode('utf-8'))
     logger.info('Add personal_bookmarks in member-fields')

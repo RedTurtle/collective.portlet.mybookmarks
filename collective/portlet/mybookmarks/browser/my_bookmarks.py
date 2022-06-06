@@ -9,10 +9,11 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from Products.Five.browser import BrowserView
 from zExceptions import Forbidden
 from zope.i18n import translate
+from zope.i18n import translate
 from zope.interface import alsoProvides
+
 import json
 import logging
-from zope.i18n import translate
 
 logger = logging.getLogger(__name__)
 
@@ -22,6 +23,7 @@ class BaseBookmarksView(BrowserView):
     """
     Base view with common methods
     """
+
     @view.memoize
     def extract_user_bookmarks(self):
         """
@@ -35,8 +37,7 @@ class BaseBookmarksView(BrowserView):
         try:
             return json.loads(bookmarks)
         except ValueError as e:
-            logger.error(
-                "Unable to retrieve %s bookmarks for user: " % (user.getId()))
+            logger.error("Unable to retrieve %s bookmarks for user: " % (user.getId()))
             logger.exception(e)
             return []
 
@@ -65,50 +66,47 @@ class BaseBookmarksView(BrowserView):
         return True
 
     def remove_bookmark(self, index):
-        """ delete a bookmark """
+        """delete a bookmark"""
         bookmarks = self.extract_user_bookmarks()
         bookmarks.pop(index)
         self.update_user_bookmarks(bookmarks)
         return True
 
     def add_bookmark(self, data):
-        """ add a bookmark """
+        """add a bookmark"""
         bookmarks = self.extract_user_bookmarks()
         bookmarks.append(data)
         self.update_user_bookmarks(bookmarks)
         return True
 
     def already_bookmarked(self):
-        """ check if the current context is already in bookmarks """
+        """check if the current context is already in bookmarks"""
         uid = api.content.get_uuid(obj=self.context)
         filtered_bookmarks = [
-            x for x in self.extract_user_bookmarks() if x.get('uid') == uid]
+            x for x in self.extract_user_bookmarks() if x.get("uid") == uid
+        ]
         return len(filtered_bookmarks) > 0
 
     def format_bookmarks(self, type="internal", data=None):
         if not data:
             # internal bookmark
             return {
-                'title': self.context.Title(),
-                'uid': api.content.get_uuid(obj=self.context),
-                'type': type
+                "title": self.context.Title(),
+                "uid": api.content.get_uuid(obj=self.context),
+                "type": type,
             }
         else:
-            return {
-                'title': data.get('title'),
-                'url': data.get('url'),
-                'type': type
-            }
+            return {"title": data.get("title"), "url": data.get("url"), "type": type}
 
 
 class MyBookmarksView(BaseBookmarksView):
 
-    '''
+    """
     View that shows a list of personal bookmarks
-    '''
+    """
 
     def authenticator(self):
-        """ generate a csrf token """
+        """generate a csrf token"""
         return createToken()
 
     def get_bookmarks(self):
@@ -119,25 +117,21 @@ class MyBookmarksView(BaseBookmarksView):
 
     def parse_default_bookmarks(self):
         default_bookmarks = api.portal.get_registry_record(
-            'default_bookmarks',
-            interface=IMyBookmarksSettings)
+            "default_bookmarks", interface=IMyBookmarksSettings
+        )
         results = []
         for bookmark in default_bookmarks:
             try:
-                title, path = bookmark.split('|')
+                title, path = bookmark.split("|")
             except ValueError:
                 # malformed bookmark
                 pass
-            test_dict = {
-                'uid': path,
-                'title': title,
-                'type': 'default'
-            }
+            test_dict = {"uid": path, "title": title, "type": "default"}
             parsed_bookmark = self.parse_internal_bookmark(test_dict)
             if parsed_bookmark:
                 results.append(parsed_bookmark)
             else:
-                test_dict['url'] = path
+                test_dict["url"] = path
                 parsed_bookmark = self.parse_external_bookmark(test_dict)
                 if parsed_bookmark:
                     results.append(parsed_bookmark)
@@ -155,42 +149,42 @@ class MyBookmarksView(BaseBookmarksView):
         return formatted_bookmarks
 
     def parse_bookmark(self, bookmark):
-        """ return a formatted bookmark """
-        if bookmark.get('type') == 'internal':
+        """return a formatted bookmark"""
+        if bookmark.get("type") == "internal":
             return self.parse_internal_bookmark(bookmark)
-        elif bookmark.get('type') == 'external':
+        elif bookmark.get("type") == "external":
             return self.parse_external_bookmark(bookmark)
         return {}
 
     def parse_external_bookmark(self, bookmark):
         """ """
-        url = bookmark.get('url')
+        url = bookmark.get("url")
         if not url:
             return {}
         return {
-            'title': bookmark.get('title', url),
-            'url': url,
-            'type': bookmark.get('type')
+            "title": bookmark.get("title", url),
+            "url": url,
+            "type": bookmark.get("type"),
         }
 
     def parse_internal_bookmark(self, bookmark):
         """ """
-        uid = bookmark.get('uid')
+        uid = bookmark.get("uid")
         item = api.content.get(UID=uid)
         if not item:
             return False
         return {
-            'title': bookmark.get('title', item.Title()),
-            'id': item.getId(),
-            'url': item.absolute_url(),
-            'description': item.Description(),
-            'type': bookmark.get('type')
+            "title": bookmark.get("title", item.Title()),
+            "id": item.getId(),
+            "url": item.absolute_url(),
+            "description": item.Description(),
+            "type": bookmark.get("type"),
         }
 
 
 class MyBookmarksEditView(MyBookmarksView):
 
-    """ View for edit bookmarks """
+    """View for edit bookmarks"""
 
     def get_bookmarks(self):
         """
@@ -201,24 +195,27 @@ class MyBookmarksEditView(MyBookmarksView):
 
 class ReorderView(BaseBookmarksView):
 
-    """ View for reorder bookmarks """
+    """View for reorder bookmarks"""
 
     def __call__(self):
         try:
             PostOnly(self.context.REQUEST)
         except Forbidden as e:
             logger.exception(e)
-            return json.dumps({'error': e.message})
+            return json.dumps({"error": e.message})
         try:
-            delta = int(self.request.form.get('delta', 0))
-            original = int(self.request.form.get('original', 0))
+            delta = int(self.request.form.get("delta", 0))
+            original = int(self.request.form.get("original", 0))
         except ValueError:
             msg = translate(
-                _("unable_sort_msg",
-                  default=u"Unable to sort bookmarks. Invalid values."),
-                context=self.request)
+                _(
+                    "unable_sort_msg",
+                    default=u"Unable to sort bookmarks. Invalid values.",
+                ),
+                context=self.request,
+            )
             logger.error(msg)
-            return json.dumps({'error': msg})
+            return json.dumps({"error": msg})
         if not delta:
             return
         if delta == original:
@@ -234,37 +231,33 @@ class EditBookmarkView(BaseBookmarksView):
     """ """
 
     def __call__(self):
-        res_dict = {
-            'field': self.request.form.get('fieldName')
-        }
+        res_dict = {"field": self.request.form.get("fieldName")}
         try:
             PostOnly(self.context.REQUEST)
         except Forbidden as e:
             logger.exception(e)
-            res_dict['success'] = False
-            res_dict['message'] = e.message
+            res_dict["success"] = False
+            res_dict["message"] = e.message
             return json.dumps(res_dict)
-        index_str, name = self.request.form.get('fieldName').split('-')
+        index_str, name = self.request.form.get("fieldName").split("-")
         if not index_str or not name:
-            logger.error(
-                "Unable to edit bookmark. index or name not provided.")
-            res_dict['success'] = False
-            res_dict['message'] = translate(
-                _("Error on saving"), context=self.request)
+            logger.error("Unable to edit bookmark. index or name not provided.")
+            res_dict["success"] = False
+            res_dict["message"] = translate(_("Error on saving"), context=self.request)
             return json.dumps(res_dict)
         try:
             index = int(index_str)
         except ValueError:
             msg = translate(
-                _("Unable to edit bookmark. index is not a valid number."), context=self.request)
+                _("Unable to edit bookmark. index is not a valid number."),
+                context=self.request,
+            )
             logger.error(msg)
-            res_dict['success'] = False
-            res_dict['message'] = msg
+            res_dict["success"] = False
+            res_dict["message"] = msg
             return json.dumps(res_dict)
-        res_dict['success'] = self.update_bookmark(
-            index=index,
-            name=name,
-            value=self.request.form.get('value')
+        res_dict["success"] = self.update_bookmark(
+            index=index, name=name, value=self.request.form.get("value")
         )
         return json.dumps(res_dict)
 
@@ -274,28 +267,27 @@ class RemoveBookmarkView(BaseBookmarksView):
     """ """
 
     def __call__(self):
-        res_dict = {
-            'field': self.request.form.get('fieldName')
-        }
+        res_dict = {"field": self.request.form.get("fieldName")}
         try:
             PostOnly(self.context.REQUEST)
         except Forbidden as e:
             logger.exception(e)
-            res_dict['success'] = False
-            res_dict['message'] = e.message
+            res_dict["success"] = False
+            res_dict["message"] = e.message
             return json.dumps(res_dict)
-        index_str = self.request.form.get('index')
+        index_str = self.request.form.get("index")
         try:
             index = int(index_str)
         except ValueError:
             msg = translate(
                 _("Unable to edit bookmark. index is not a valid number."),
-                context=self.request)
+                context=self.request,
+            )
             logger.error(msg)
-            res_dict['success'] = False
-            res_dict['message'] = msg
+            res_dict["success"] = False
+            res_dict["message"] = msg
             return json.dumps(res_dict)
-        res_dict['success'] = self.remove_bookmark(index=index)
+        res_dict["success"] = self.remove_bookmark(index=index)
         return json.dumps(res_dict)
 
 
@@ -309,22 +301,20 @@ class AddExternalBookmarkView(BaseBookmarksView):
             PostOnly(self.context.REQUEST)
         except Forbidden as e:
             logger.exception(e)
-            res_dict['success'] = False
-            res_dict['message'] = e.message
+            res_dict["success"] = False
+            res_dict["message"] = e.message
             return json.dumps(res_dict)
-        url = self.request.form.get('url')
+        url = self.request.form.get("url")
 
-        if not url.startswith('http://') and not url.startswith('https://'):
-            url = 'http://{}'.format(url)
+        if not url.startswith("http://") and not url.startswith("https://"):
+            url = "http://{}".format(url)
         data = {
-            'title': self.request.form.get('title'),
-            'url': url,
-            'type': self.request.form.get('type')
+            "title": self.request.form.get("title"),
+            "url": url,
+            "type": self.request.form.get("type"),
         }
 
-        res_dict['success'] = self.add_bookmark(
-            data=data
-        )
+        res_dict["success"] = self.add_bookmark(data=data)
         return json.dumps(res_dict)
 
 
@@ -337,30 +327,28 @@ class AddBookmarkView(BaseBookmarksView):
         if self.already_bookmarked():
             message = translate(
                 _(
-                    'already_bookmarked_label',
-                    default=u'This content is already bookmarked!'),
-                context=self.request)
+                    "already_bookmarked_label",
+                    default=u"This content is already bookmarked!",
+                ),
+                context=self.request,
+            )
             api.portal.show_message(
-                message=message,
-                type="warning",
-                request=self.request)
+                message=message, type="warning", request=self.request
+            )
             return self.request.response.redirect(self.context.absolute_url())
-        result = self.add_bookmark(
-            data=self.format_bookmarks()
-        )
+        result = self.add_bookmark(data=self.format_bookmarks())
         message = ""
         msg_type = "info"
         if result:
             message = translate(
-                _('bookmark_addedd_label', default=u'Bookmark added!'),
-                context=self.request)
+                _("bookmark_addedd_label", default=u"Bookmark added!"),
+                context=self.request,
+            )
         else:
             message = translate(
-                _('bookmark_unable_add_label', default=u'Unable to add this bookmark.'),
-                context=self.request)
+                _("bookmark_unable_add_label", default=u"Unable to add this bookmark."),
+                context=self.request,
+            )
             message = "error"
-        api.portal.show_message(
-            message=message,
-            type=msg_type,
-            request=self.request)
+        api.portal.show_message(message=message, type=msg_type, request=self.request)
         return self.request.response.redirect(self.context.absolute_url())

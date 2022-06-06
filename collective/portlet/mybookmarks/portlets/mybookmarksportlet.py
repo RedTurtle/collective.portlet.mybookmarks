@@ -5,7 +5,7 @@ from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from zope import schema
-from zope.interface import implements
+from zope.interface import implementer
 from plone import api
 import json
 
@@ -26,12 +26,11 @@ class IMyBookmarksPortlet(IPortletDataProvider):
         required=True)
 
 
+@implementer(IMyBookmarksPortlet)
 class Assignment(base.Assignment):
     """
     Portlet assignment
     """
-
-    implements(IMyBookmarksPortlet)
 
     def __init__(self, portletTitle=''):
         self.portletTitle = portletTitle

@@ -1,10 +1,13 @@
 Changelog
 =========
 
-2.0.5 (unreleased)
+3.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop python 2 and Plone < 5.2 support.
+  [cekk, axaroth]
+- Python 3 compatibility.
+  [cekk, axaroth]
 
 
 2.0.4 (2018-04-06)
